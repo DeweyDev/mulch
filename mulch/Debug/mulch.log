@@ -1,25 +1,23 @@
-﻿Build started 5/22/2013 11:35:01 AM.
-     1>Project "c:\Users\Robotics\documents\visual studio 2010\Projects\mulch\mulch\mulch.vcxproj" on node 2 (build target(s)).
-     1>PrepareForBuild:
-         Creating directory "c:\users\robotics\documents\visual studio 2010\Projects\mulch\Debug\".
-       InitializeBuildStatus:
+﻿Build started 5/22/2013 9:18:39 PM.
+     1>Project "C:\Users\Neelam\Documents\GitHub\mulch\mulch\mulch.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Creating "Debug\mulch.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt engine.cpp main.cpp
-         main.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt engine.cpp
          engine.cpp
-         Generating Code...
+     1>c:\users\neelam\documents\github\mulch\mulch\engine.cpp(22): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\robotics\documents\visual studio 2010\Projects\mulch\Debug\mulch.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\mulch.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\users\robotics\documents\visual studio 2010\Projects\mulch\Debug\mulch.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\robotics\documents\visual studio 2010\Projects\mulch\Debug\mulch.lib" /MACHINE:X86 Debug\engine.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Neelam\Documents\GitHub\mulch\Debug\mulch.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\mulch.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Neelam\Documents\GitHub\mulch\Debug\mulch.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Neelam\Documents\GitHub\mulch\Debug\mulch.lib" /MACHINE:X86 Debug\engine.obj
          Debug\main.obj
-         mulch.vcxproj -> c:\users\robotics\documents\visual studio 2010\Projects\mulch\Debug\mulch.exe
+         LINK : C:\Users\Neelam\Documents\GitHub\mulch\Debug\mulch.exe not found or not built by the last incremental link; performing full link
+         mulch.vcxproj -> C:\Users\Neelam\Documents\GitHub\mulch\Debug\mulch.exe
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"c:\users\robotics\documents\visual studio 2010\Projects\mulch\Debug\mulch.exe;#1" /manifest Debug\mulch.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Neelam\Documents\GitHub\mulch\Debug\mulch.exe;#1" /manifest Debug\mulch.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\mulch.unsuccessfulbuild".
          Touching "Debug\mulch.lastbuildstate".
-     1>Done Building Project "c:\Users\Robotics\documents\visual studio 2010\Projects\mulch\mulch\mulch.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Neelam\Documents\GitHub\mulch\mulch\mulch.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.79
+Time Elapsed 00:00:01.09
