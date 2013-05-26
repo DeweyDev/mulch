@@ -9,10 +9,11 @@
 int main( void ){
 	
 	engine newone;
-	string input;
+	char input[60];
 
 	printf("%s\n","Welcome to Mulch. Enter a balanced chemical equation below");
-	cin >> input;
+	
+	fgets(input,60,stdin);
 
 	newone.parseInput(input);
 

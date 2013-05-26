@@ -21,7 +21,7 @@ public:
 
 	// Member functions
 
-	void parseInput(string stringInput);
+	void parseInput(char stringInput[]);
 
 	engine(void);
 	~engine(void);
