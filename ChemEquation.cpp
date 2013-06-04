@@ -50,7 +50,7 @@ void ChemEquation::parseInput(char input[]){
 	int endOfString = 0;			    // Variable that stores the end of the string
 	int i;							    // Loop counter
 	int k;                              // Another loop counter
-	int g;                              // Yet Another loop counter  
+	int g;                              // Yet Another loop counter
 	int z;                              // HOW MANY!!!!
 	int j;                              // PLEASE STOP!
 	vector <string> foundElements;      // Vector that stores the number of found elements
@@ -349,9 +349,20 @@ void ChemEquation::parseInput(char input[]){
 double ChemEquation::elementLookup(string element, double quantity){
 
 	double final;
+    int number;
 
-	vector <string> elements;
-	elements[1] = "H";
+	ifstream inFile;
+
+	inFile.open("elements.txt");
+	string lineoftext;
+
+	getline(inFile, lineoftext);
+
+	if (lineoftext.find(element, 0) != (string::npos)) {
+		cout << "Found " << element << endl;
+		inFile >> number;
+		cout << "Found the atomic number to be " << number << endl;
+	}
 
 	vector <double> elementMasses;
 	elementMasses[1] = 1.008;
@@ -365,7 +376,7 @@ double ChemEquation::elementLookup(string element, double quantity){
 	elementMasses[9] = 18.9984032;
 	elementMasses[10] = 20.1797;
 
-	
+
 	return final;
 }
 
@@ -412,7 +423,7 @@ void ChemEquation::tokenizer(char stringInput[]){
 			// Pack the token
 
 			tempStr[i + 1] = '\n';
-			
+
 
 		}
 
