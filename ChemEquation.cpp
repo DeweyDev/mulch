@@ -33,7 +33,12 @@
 #include <ctype.h>
 #include <cstring>
 
-// Constructor
+// Constructors
+
+ChemEquation::ChemEquation(string equationstringgiven)
+{
+    this->equationstring = equationstringgiven;
+}
 
 ChemEquation::ChemEquation(void)
 {
@@ -43,6 +48,20 @@ ChemEquation::ChemEquation(void)
 
 ChemEquation::~ChemEquation(void)
 {
+}
+
+// Sets the equation string if not specified in the constructor
+
+void ChemEquation::setEquation(string givenequation){
+
+    this -> equationstring = givenequation;
+
+}
+
+// Gets the equation string
+
+string ChemEquation::getEquation(){
+    return this->equationstring;
 }
 
 void ChemEquation::parseInput(char input[]){
@@ -384,6 +403,8 @@ void ChemEquation::calculate(int length, int position, double quantity) {
 	}
 
 }
+
+/* TODO : FINISH TOKENIZER*/
 
 void ChemEquation::tokenizer(char stringInput[]){
 

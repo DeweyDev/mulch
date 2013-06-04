@@ -28,6 +28,11 @@ int main( void ){
 	}
 
 
+    printf("\n=========================\n");
+
+    ChemEquation secondone("JeWs3");
+
+    cout<< "\n" << secondone.getEquation();
 
 	keep_window_open();
 	return 0;

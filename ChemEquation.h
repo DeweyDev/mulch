@@ -5,37 +5,49 @@ class ChemEquation
 {
 public:
 
-	// Public variables that will hold shit
+    string equationstring;
 
-	typedef struct {
+    // Public variables that will hold shit
 
-		// Vectors that the parser uses
-		
-		vector <string> elementNames;
-		vector <int> amountOfElement;
+    typedef struct
+    {
 
-		// Vectors that the tokenizer uses
+        // Vectors that the parser uses
 
-		vector <string> tokens;
-	
+        vector <string> elementNames;
+        vector <int> amountOfElement;
+
+        // Vectors that the tokenizer uses
+
+        vector <string> tokens;
 
 
-	} databank;
 
-	// Instance of the database
+    } databank;
 
-	databank DATA_BASE;
+    // Instance of the database
 
-	// Member functions
+    databank DATA_BASE;
 
-	void parseInput(char stringInput[]);
+    // Member functions
 
-	void calculate(int length, int position, double quantity);
+    void parseInput(char stringInput[]);
 
-	double elementLookup(string element, double quantity);
+    void calculate(int length, int position, double quantity);
 
-	void tokenizer(char stringInput[]);
+    double elementLookup(string element, double quantity);
 
-	ChemEquation(void);
-	~ChemEquation(void);
+    void tokenizer(char stringInput[]);
+
+    void setEquation(string givenequation);
+
+    string
+    getEquation();
+
+    // Constructors and deconstructors
+
+    ChemEquation(string equationstring);
+    ChemEquation();
+    ~ChemEquation(void);
+
 };
