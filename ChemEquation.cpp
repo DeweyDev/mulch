@@ -351,18 +351,9 @@ double ChemEquation::elementLookup(string element, double quantity){
 	double final;
     int number;
 
-	ifstream inFile;
+	ifstream elementDatabase;
 
-	inFile.open("elements.txt");
-	string lineoftext;
 
-	getline(inFile, lineoftext);
-
-	if (lineoftext.find(element, 0) != (string::npos)) {
-		cout << "Found " << element << endl;
-		inFile >> number;
-		cout << "Found the atomic number to be " << number << endl;
-	}
 
 	vector <double> elementMasses;
 	elementMasses[1] = 1.008;

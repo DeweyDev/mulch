@@ -7,13 +7,13 @@
 // Main function
 
 int main( void ){
-	
+
 	ChemEquation newone;
 	char input[60];
 	int i;
 
 	printf("%s\n","Welcome to Mulch. Enter a balanced chemical equation below");
-	
+
 	fgets(input,60,stdin);
 
 	newone.parseInput(input);
@@ -24,8 +24,10 @@ int main( void ){
 
 		cout << "\n" << newone.DATA_BASE.elementNames[i] << "\n";
 		cout << "\n" << newone.DATA_BASE.amountOfElement[i] << "\n";
-			
+
 	}
+
+
 
 	keep_window_open();
 	return 0;
