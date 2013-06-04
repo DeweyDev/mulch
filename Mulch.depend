@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1370367240 source:c:\documents and settings\administrator.esumsroboticsla\my documents\codeblocks projects\mulch\chemequation.cpp
+	"ChemEquation.h"
+	<ctype.h>
+	<cstring>
+
+1370367198 c:\documents and settings\administrator.esumsroboticsla\my documents\codeblocks projects\mulch\chemequation.h
+	"std_lib_facilities.h"
+
+1370347805 c:\documents and settings\administrator.esumsroboticsla\my documents\codeblocks projects\mulch\std_lib_facilities.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<cmath>
+	<cstdlib>
+	<string>
+	<list>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<hash_map>
+	<ext/hash_map>
+	<iomanip>
+
+1370361746 source:c:\documents and settings\administrator.esumsroboticsla\my documents\codeblocks projects\mulch\main.cpp
+	"std_lib_facilities.h"
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	"ChemEquation.h"
+

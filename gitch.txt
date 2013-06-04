@@ -1,0 +1,1 @@
+git%ull hub master;yank%pull github master;package%add .;label%commit -m "Regular commit";shove%push github master;
