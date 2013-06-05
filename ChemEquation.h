@@ -6,6 +6,7 @@ class ChemEquation
 public:
 
     string equationstring;
+    char input[60];
 
     // Public variables that will hold shit
 
@@ -31,7 +32,9 @@ public:
 
     // Member functions
 
-    void parseInput(char stringInput[]);
+    void grabInput();
+
+    void parseInput();
 
     void calculate(int length, int position, double quantity);
 
@@ -41,8 +44,7 @@ public:
 
     void setEquation(string givenequation);
 
-    string
-    getEquation();
+    string getEquation();
 
     // Constructors and deconstructors
 

@@ -54,3 +54,33 @@
 1370386012 c:\documents and settings\norbert joseph\desktop\mulch\chemequation.h
 	"std_lib_facilities.h"
 
+1370442393 source:c:\documents and settings\administrator.esumsroboticsla\desktop\mulchbackup\chemequation.cpp
+	"ChemEquation.h"
+	<ctype.h>
+	<cstring>
+
+1370443235 c:\documents and settings\administrator.esumsroboticsla\desktop\mulchbackup\chemequation.h
+	"std_lib_facilities.h"
+
+1370442393 c:\documents and settings\administrator.esumsroboticsla\desktop\mulchbackup\std_lib_facilities.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<cmath>
+	<cstdlib>
+	<string>
+	<list>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<hash_map>
+	<ext/hash_map>
+	<iomanip>
+
+1370443235 source:c:\documents and settings\administrator.esumsroboticsla\desktop\mulchbackup\main.cpp
+	"std_lib_facilities.h"
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	"ChemEquation.h"
+

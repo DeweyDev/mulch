@@ -50,6 +50,14 @@ ChemEquation::~ChemEquation(void)
 {
 }
 
+// Get from the standard input
+
+void ChemEquation::grabInput(){
+
+    fgets(this -> input,60,stdin);
+
+}
+
 // Sets the equation string if not specified in the constructor
 
 void ChemEquation::setEquation(string givenequation){
@@ -64,7 +72,7 @@ string ChemEquation::getEquation(){
     return this->equationstring;
 }
 
-void ChemEquation::parseInput(char input[]){
+void ChemEquation::parseInput(){
 
 	int endOfString = 0;			    // Variable that stores the end of the string
 	int i;							    // Loop counter

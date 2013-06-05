@@ -9,14 +9,14 @@
 int main( void ){
 
 	ChemEquation newone;
-	char input[60];
 	int i;
 
 	printf("%s\n","Welcome to Mulch. Enter a balanced chemical equation below");
 
-	fgets(input,60,stdin);
+	newone.grabInput();
 
-	newone.parseInput(input);
+	newone.parseInput();
+
 
 	// Now print out the contents of the vectors
 
