@@ -37,7 +37,20 @@
 
 ChemEquation::ChemEquation(string equationstringgiven)
 {
+    int i;
     this->equationstring = equationstringgiven;
+
+    // Turn string given into an operatable character array
+
+    for(i = 0; i < equationstring.length(); i++)
+    {
+        this->input[i] = equationstring[i];
+    }
+
+    // Append newline character
+
+    input[i] = '\n';
+
 }
 
 ChemEquation::ChemEquation(void)
@@ -62,7 +75,19 @@ void ChemEquation::grabInput(){
 
 void ChemEquation::setEquation(string givenequation){
 
+    int i;
     this -> equationstring = givenequation;
+
+    // Turn string given into an operatable character array
+
+    for(i = 0; i < equationstring.length(); i++)
+    {
+        this->input[i] = equationstring[i];
+    }
+
+    // Append newline character
+
+    input[i] = '\n';
 
 }
 
@@ -451,3 +476,5 @@ void ChemEquation::tokenizer(char stringInput[]){
 
 
 }
+
+

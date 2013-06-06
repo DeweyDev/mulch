@@ -9,9 +9,12 @@
 int main( void ){
 
 	ChemEquation newone;
+
 	int i;
 
-	printf("%s\n","Welcome to Mulch. Enter a balanced chemical equation below");
+	string stuff;
+
+	printf("%s\n","Test One: grabInput()");
 
 	newone.grabInput();
 
@@ -28,11 +31,24 @@ int main( void ){
 	}
 
 
-    printf("\n=========================\n");
+    printf("\n====Test 2: Constructor and Set Input======\n");
 
-    ChemEquation secondone("JeWs3");
+    getline(cin,stuff);
 
-    cout<< "\n" << secondone.getEquation();
+    ChemEquation secondone(stuff);
+
+    cout << "\n" << secondone.getEquation() << "\n";
+
+    secondone.parseInput();
+
+    // Now print out the contents of the vectors
+
+	for(i = 0; i < secondone.DATA_BASE.elementNames.size(); i++){
+
+		cout << "\n" << secondone.DATA_BASE.elementNames[i] << "\n";
+		cout << "\n" << secondone.DATA_BASE.amountOfElement[i] << "\n";
+
+	}
 
 	keep_window_open();
 	return 0;
