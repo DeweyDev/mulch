@@ -50,6 +50,8 @@ int main( void ){
 
 	}
 
+    secondone.tokenizer();
+
 	keep_window_open();
 	return 0;
 }

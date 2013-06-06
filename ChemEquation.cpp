@@ -10,17 +10,17 @@
 //
 //  DEWEY DEV, 2013.
 //
-//  File:       engine.cpp
+//  File:       ChemEquation.cpp
 //
 //  Contents:   parses a given chemical equation
 //              finds the elements present as well as their quantities
 //              returns two parallel vectors .
 //
-//  Classes:    engine
+//  Classes:    ChemEquation
 //
-//  Functions:  parseInput()
-//				elementLookup()
-//				calculate()
+//  Functions:  parseInput()                   // parses compounds
+//				elementLookup()                // dunno what this does
+//				calculate()                    // same here
 //
 //  Author:     shrimpboyho ( shrimpboyhoftw@gmail.com )
 //
@@ -32,6 +32,7 @@
 #include "ChemEquation.h"
 #include <ctype.h>
 #include <cstring>
+#include <sstream>
 
 // Constructors
 
@@ -63,11 +64,13 @@ ChemEquation::~ChemEquation(void)
 {
 }
 
-// Get from the standard input
+// Get from the standard input (THIS MEMBER FUNCTION MAY SOON BE DEPRECATED)
 
 void ChemEquation::grabInput(){
 
     fgets(this -> input,60,stdin);
+
+    /* TODO: CONVERT THIS INTO A STRING*/
 
 }
 
@@ -94,8 +97,12 @@ void ChemEquation::setEquation(string givenequation){
 // Gets the equation string
 
 string ChemEquation::getEquation(){
+
     return this->equationstring;
+
 }
+
+// A function that parses each compound and does counting
 
 void ChemEquation::parseInput(){
 
@@ -112,6 +119,7 @@ void ChemEquation::parseInput(){
 	int tempsum = 0;                    // A temporary sum of the amount of elements
 	bool paren = false;                 // A boolean representing the state of parenthesis in the equation
 	int digitafterparen;                // In integer representing the number after the parenthesis
+    int firstcoefficientOfCompound;          // An integer representing the coefficient of the compound
 
 
 	// Determine the end of the string
@@ -123,6 +131,33 @@ void ChemEquation::parseInput(){
 	}
 
 	printf("Determined the end of the string to be at the index of %d\n", endOfString);
+
+
+	// Determine to see if there is a coefficient added at the begining
+
+	for(i = 0; i < endOfString; i++){
+
+
+        // See if we've hit a first number
+
+        if(isdigit(input[i])){
+
+            // Know that this is the coefficient number
+            firstcoefficientOfCompound = input[i] - '0';
+            break;
+        }
+
+        // If we've hit a letter
+
+        if(isalpha(input[i])){
+
+            // Know that this is the coefficient number
+            firstcoefficientOfCompound = 1;
+            break;
+        }
+
+	}
+
 
 	// Begin scanning the string character by character
 
@@ -383,7 +418,7 @@ void ChemEquation::parseInput(){
 			tempsum = tempsum + digitsFound[k];
 		}
 
-		amountOfFoundElements.push_back(tempsum);
+		amountOfFoundElements.push_back(tempsum * firstcoefficientOfCompound);
 
 		// Reset sum and clear digitsFound
 
@@ -397,6 +432,8 @@ void ChemEquation::parseInput(){
 	this->DATA_BASE.amountOfElement = amountOfFoundElements;
 
 }
+
+// A function written by daniel
 
 double ChemEquation::elementLookup(string element, double quantity){
 
@@ -423,7 +460,7 @@ double ChemEquation::elementLookup(string element, double quantity){
 	return final;
 }
 
-
+// Another function written by daniel
 
 void ChemEquation::calculate(int length, int position, double quantity) {
 
@@ -439,42 +476,35 @@ void ChemEquation::calculate(int length, int position, double quantity) {
 
 /* TODO : FINISH TOKENIZER*/
 
-void ChemEquation::tokenizer(char stringInput[]){
+/** This function is the first step of parsing the entire chemical equation
+    It basically splits the equation into several compounds.
 
-	int endOfString = 0;
+ */
+
+void ChemEquation::tokenizer(){
 
 	int i;
+	string firstHalf;
+	string secondHalf;
+    string currentToken;
 
-	char tempStr[99];
+	// Split the equation string into two strings, one for the lefthand, one for the righthand
 
-	// Determine the end of the string
+    istringstream streamy(this->equationstring);
 
-	while(stringInput[endOfString] != '\n'){
+    while(getline(streamy,firstHalf, '=')){
 
-		endOfString++;
+        cout << "\nHere is the first half:" << firstHalf << "\n";
 
-	}
+        while(getline(streamy,secondHalf)){
 
-	printf("Determined the end of the string to be at the index of %d\n", endOfString);
+             cout << "\nHere is the second half:" << secondHalf << "\n";
 
-	// Split the inputed string into tokens (aka compounds)
+        }
 
-	for( i = 0; i < endOfString; i++){
+    }
 
-		if(stringInput[i] == '+'){
-
-			strncpy(tempStr,stringInput,i);
-
-			// Pack the token
-
-			tempStr[i + 1] = '\n';
-
-
-		}
-
-	}
-
-
+    /* TODO: SPLIT THE TWO HALFS INTO COMPOUNDS!*/
 }
 
 

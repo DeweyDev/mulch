@@ -5,15 +5,22 @@ class ChemEquation
 {
 public:
 
+    // Representations of the entire equation
+
     string equationstring;
+
+    // Representation of the token the parser is currently working with
+
     char input[60];
+
+
 
     // Public variables that will hold shit
 
     typedef struct
     {
 
-        // Vectors that the parser uses
+        // Vectors that the parser uses (these vectors will constantly be changing)
 
         vector <string> elementNames;
         vector <int> amountOfElement;
@@ -30,17 +37,23 @@ public:
 
     databank DATA_BASE;
 
-    // Member functions
+    // Parser Member functions
 
     void grabInput();
 
     void parseInput();
 
+    void tokenizer();
+
+
+    // Calculator member functions
+
     void calculate(int length, int position, double quantity);
 
     double elementLookup(string element, double quantity);
 
-    void tokenizer(char stringInput[]);
+
+    // Getters and setters member functions
 
     void setEquation(string givenequation);
 
