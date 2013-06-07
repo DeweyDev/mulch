@@ -433,8 +433,6 @@ void ChemEquation::parseInput(){
 
 }
 
-]
-
 
 /* TODO : FINISH TOKENIZER*/
 
@@ -470,8 +468,7 @@ void ChemEquation::tokenizer(){
 }
 
 
-
-/*Calculator methods begin here*/
+/** Calculator methods begin here*/
 
 /*Element Lookup is responsible for finding the molar masses of each
 individual element in a compound or series of elements that are given
@@ -527,7 +524,7 @@ void ChemEquation::elementLookup(int length, int position) {
 element before feeding this data back to elementLookup() to be
 printed to the screen.  It contains the molar mass of every element.*/
 
-double ChemEQuation::calculateMM(string element, double quantity){
+double ChemEquation::calculateMM(string element, double quantity){
 
 	double final;
     int i;
