@@ -52,6 +52,10 @@ int main( void ){
 
     secondone.tokenizer();
 
+    printf("\n=====Test 3: Calculating Molar Mass======\n");
+
+    secondone.elementLookup(4, 2);
+
 	keep_window_open();
 	return 0;
 }

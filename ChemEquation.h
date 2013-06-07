@@ -13,11 +13,7 @@ public:
 
     char input[60];
 
-    int index(string element);
 
-    void elementLookup(int length, int position);
-
-    double calculateMM(string element, double quantity);
 
 
     // Public variables that will hold shit
@@ -61,10 +57,11 @@ public:
 
     // Calculator member functions
 
-    void calculate(int length, int position, double quantity);
+    int index(string element);
 
-    double elementLookup(string element, double quantity);
+    void elementLookup(int length, int position);
 
+    double calculateMM(string element, double quantity);
 
     // Getters and setters member functions
 

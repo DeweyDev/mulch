@@ -112,6 +112,12 @@
 	<ext/hash_map>
 	<iomanip>
 
-1370610391 c:\users\robotics\desktop\mulch\chemequation.h
+1370613940 c:\users\robotics\desktop\mulch\chemequation.h
 	"std_lib_facilities.h"
+
+1370611262 source:c:\users\robotics\desktop\mulch\chemequation.cpp
+	"ChemEquation.h"
+	<ctype.h>
+	<cstring>
+	<sstream>
 
