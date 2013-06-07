@@ -13,6 +13,11 @@ public:
 
     char input[60];
 
+    int index(string element);
+
+    void elementLookup(int length, int position);
+
+    double calculateMM(string element, double quantity);
 
 
     // Public variables that will hold shit
@@ -28,6 +33,14 @@ public:
         // Vectors that the tokenizer uses
 
         vector <string> tokens;
+
+        // Vectors that the calculator uses
+
+        vector <string> elementSymbols;
+
+        vector <int> atomicNumbers;
+
+        vector <double> elementMasses;
 
 
 

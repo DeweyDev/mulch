@@ -433,46 +433,8 @@ void ChemEquation::parseInput(){
 
 }
 
-// A function written by daniel
+]
 
-double ChemEquation::elementLookup(string element, double quantity){
-
-	double final;
-    int number;
-
-	ifstream elementDatabase;
-
-
-
-	vector <double> elementMasses;
-	elementMasses[1] = 1.008;
-	elementMasses[2] = 4.002602;
-	elementMasses[3] = 6.94;
-	elementMasses[4] = 9.012182;
-	elementMasses[5] = 10.81;
-	elementMasses[6] = 12.011;
-	elementMasses[7] = 14.007;
-	elementMasses[8] = 15.999;
-	elementMasses[9] = 18.9984032;
-	elementMasses[10] = 20.1797;
-
-
-	return final;
-}
-
-// Another function written by daniel
-
-void ChemEquation::calculate(int length, int position, double quantity) {
-
-	double molarMass;
-	for(int i = 0; i < length; i++) {
-
-		molarMass = elementLookup(this->DATA_BASE.elementNames[position + i], quantity);
-		cout << "\n Molar Mass: " << molarMass << endl;
-
-	}
-
-}
 
 /* TODO : FINISH TOKENIZER*/
 
@@ -508,3 +470,139 @@ void ChemEquation::tokenizer(){
 }
 
 
+
+/*Calculator methods begin here*/
+
+/*Element Lookup is responsible for finding the molar masses of each
+individual element in a compound or series of elements that are given
+to it.*/
+
+void ChemEquation::elementLookup(int length, int position) {
+
+    /*These vectors will be established based on user input.
+    They will be public and the calculateMM() constructor will
+    get them rather than having them fed into this void manually.
+
+    ============================================================*/
+
+    vector <string> elementNames;
+
+    elementNames.push_back("C");
+    elementNames.push_back("H");
+    elementNames.push_back("O");
+    elementNames.push_back("O");
+    elementNames.push_back("H");
+    elementNames.push_back("O");
+    elementNames.push_back("C");
+    elementNames.push_back("O");
+
+    vector <double> elementQuantites;
+
+    elementQuantites.push_back(6);
+    elementQuantites.push_back(12);
+    elementQuantites.push_back(6);
+    elementQuantites.push_back(2);
+    elementQuantites.push_back(2);
+    elementQuantites.push_back(1);
+    elementQuantites.push_back(1);
+    elementQuantites.push_back(2);
+
+    /*============================================================
+    The part of the method that will be used by itself in
+    the final Mulch begins here.*/
+
+
+	double molarMass;
+
+	for(int i = 0; i < length; i++) {
+
+        molarMass = calculateMM(elementNames[i + position - 1], elementQuantites[i + position - 1]);
+
+        cout << "\n Molar Mass of " << elementNames[i + position - 1] << ": " << molarMass << endl;
+
+    }
+}
+
+/*CalculateMM will calculate the molar mass of each individual
+element before feeding this data back to elementLookup() to be
+printed to the screen.  It contains the molar mass of every element.*/
+
+double ChemEQuation::calculateMM(string element, double quantity){
+
+	double final;
+    int i;
+
+    i = index(element);
+
+	vector <double> elementMasses;
+
+	elementMasses.push_back(1.008);
+	elementMasses.push_back(4.002602);
+    elementMasses.push_back(6.94);
+    elementMasses.push_back(9.012182);
+    elementMasses.push_back(10.81);
+    elementMasses.push_back(12.011);
+    elementMasses.push_back(14.007);
+    elementMasses.push_back(15.999);
+    elementMasses.push_back(18.9984032);
+    elementMasses.push_back(20.1719);
+
+	final = elementMasses[i] * quantity;
+
+
+	return final;
+}
+
+/*The Indexing method is where the database of elements is contained.
+This method will look up each element and return an integer that can
+be used in double calculateMM() to find and calculate molar mass.*/
+
+int ChemEquation::index(string element) {
+    /*Returns an integer that can be used in a case statement for element lookup.*/
+    int i;
+
+    vector <string> elementSymbols;
+    elementSymbols.push_back("H");
+    elementSymbols.push_back("He");
+    elementSymbols.push_back("Li");
+    elementSymbols.push_back("Be");
+    elementSymbols.push_back("B");
+    elementSymbols.push_back("C");
+    elementSymbols.push_back("N");
+    elementSymbols.push_back("O");
+    elementSymbols.push_back("F");
+    elementSymbols.push_back("Ne");
+    elementSymbols.push_back("Na");
+    elementSymbols.push_back("Mg");
+    elementSymbols.push_back("Al");
+    elementSymbols.push_back("Si");
+    elementSymbols.push_back("P");
+    elementSymbols.push_back("S");
+    elementSymbols.push_back("Cl");
+    elementSymbols.push_back("Ar");
+    elementSymbols.push_back("K");
+    elementSymbols.push_back("Ca");
+
+    vector <int> atomicNumbers;
+
+    for(int y = 0; y < 120; y++){
+        atomicNumbers.push_back(y);
+    }
+
+    bool found = false;
+
+    for(int x = 0; x < 19; x++){
+        if(element == elementSymbols[x]){
+            i = atomicNumbers[x];
+            found = true;
+            break;
+        }
+    }
+
+    if(!found) {
+        cerr << "Error 1: Element not found" << endl;
+        i = NULL;
+    }
+
+    return i;
+}
