@@ -8,30 +8,13 @@
 
 int main( void ){
 
-	ChemEquation newone;
-
 	int i;
+	int k;
 
 	string stuff;
 
-	printf("%s\n","Test One: grabInput()");
 
-	newone.grabInput();
-
-	newone.parseInput();
-
-
-	// Now print out the contents of the vectors
-
-	for(i = 0; i < newone.DATA_BASE.elementNames.size(); i++){
-
-		cout << "\n" << newone.DATA_BASE.elementNames[i] << "\n";
-		cout << "\n" << newone.DATA_BASE.amountOfElement[i] << "\n";
-
-	}
-
-
-    printf("\n====Test 2: Constructor and Set Input======\n");
+    printf("\n====Test 1: Constructor and Set Input and Tokenizer======\n");
 
     getline(cin,stuff);
 
@@ -39,18 +22,23 @@ int main( void ){
 
     cout << "\n" << secondone.getEquation() << "\n";
 
-    secondone.parseInput();
 
-    // Now print out the contents of the vectors
+    vector <compound> dataBlob = secondone.getCompoundData();
 
-	for(i = 0; i < secondone.DATA_BASE.elementNames.size(); i++){
+    for(i = 0; i < dataBlob.size(); i++){
 
-		cout << "\n" << secondone.DATA_BASE.elementNames[i] << "\n";
-		cout << "\n" << secondone.DATA_BASE.amountOfElement[i] << "\n";
 
-	}
+        cout << "\nDATABLOB COMPOUND STRING: " << dataBlob[i].compoundString << "\n";
 
-    secondone.tokenizer();
+        for(k = 0; k < dataBlob[i].compoundElements.size(); k++){
+
+            cout << "\nDATABLOB COMPOUND Element: " << dataBlob[i].compoundElements[k]<< "\n";
+            cout << "\nDATABLOB COMPOUND Element Amount : " << dataBlob[i].compoundElementsAmounts[k]<< "\n";
+
+        }
+
+    }
+
 
     printf("\n=====Test 3: Calculating Molar Mass======\n");
 

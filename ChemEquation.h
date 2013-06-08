@@ -1,6 +1,14 @@
 #pragma once
 #include "std_lib_facilities.h"
 
+struct compound{
+
+        string compoundString;
+        vector <string> compoundElements;
+        vector <int> compoundElementsAmounts;
+
+};
+
 class ChemEquation
 {
 public:
@@ -13,7 +21,13 @@ public:
 
     char input[60];
 
+    /** PACKAGE VARIABLES
+    //
+    //  These are some important structs/stuff that you don't want to mess with
+    //
+    */
 
+    vector <compound> package;
 
 
     // Public variables that will hold shit
@@ -50,7 +64,7 @@ public:
 
     void grabInput();
 
-    void parseInput();
+    void parseInput(string equationstring);
 
     void tokenizer();
 
@@ -63,16 +77,27 @@ public:
 
     double calculateMM(string element, double quantity);
 
+
+    /** GENERAL PUBLIC FUNCTIONS
+    //
+    //  These are the functions that are meant to be used by the general public
+    //
+    //
+    */
+
     // Getters and setters member functions
 
     void setEquation(string givenequation);
 
     string getEquation();
 
+    vector <compound> getCompoundData();
+
     // Constructors and deconstructors
 
     ChemEquation(string equationstring);
     ChemEquation();
     ~ChemEquation(void);
+
 
 };

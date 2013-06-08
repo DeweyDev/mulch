@@ -38,19 +38,8 @@
 
 ChemEquation::ChemEquation(string equationstringgiven)
 {
-    int i;
+
     this->equationstring = equationstringgiven;
-
-    // Turn string given into an operatable character array
-
-    for(i = 0; i < equationstring.length(); i++)
-    {
-        this->input[i] = equationstring[i];
-    }
-
-    // Append newline character
-
-    input[i] = '\n';
 
 }
 
@@ -78,19 +67,7 @@ void ChemEquation::grabInput(){
 
 void ChemEquation::setEquation(string givenequation){
 
-    int i;
     this -> equationstring = givenequation;
-
-    // Turn string given into an operatable character array
-
-    for(i = 0; i < equationstring.length(); i++)
-    {
-        this->input[i] = equationstring[i];
-    }
-
-    // Append newline character
-
-    input[i] = '\n';
 
 }
 
@@ -104,7 +81,7 @@ string ChemEquation::getEquation(){
 
 // A function that parses each compound and does counting
 
-void ChemEquation::parseInput(){
+void ChemEquation::parseInput(string equationstring){
 
 	int endOfString = 0;			    // Variable that stores the end of the string
 	int i;							    // Loop counter
@@ -120,6 +97,18 @@ void ChemEquation::parseInput(){
 	bool paren = false;                 // A boolean representing the state of parenthesis in the equation
 	int digitafterparen;                // In integer representing the number after the parenthesis
     int firstcoefficientOfCompound;          // An integer representing the coefficient of the compound
+
+
+    // Turn string given into an operatable character array
+
+    for(i = 0; i < equationstring.length(); i++)
+    {
+        this->input[i] = equationstring[i];
+    }
+
+    // Append newline character
+
+    input[i] = '\n';
 
 
 	// Determine the end of the string
@@ -447,6 +436,7 @@ void ChemEquation::tokenizer(){
 	string firstHalf;
 	string secondHalf;
     string currentToken;
+    string tempToken;
 
 	// Split the equation string into two strings, one for the lefthand, one for the righthand
 
@@ -464,7 +454,47 @@ void ChemEquation::tokenizer(){
 
     }
 
-    /* TODO: SPLIT THE TWO HALFS INTO COMPOUNDS!*/
+    /* SPLIT THE TWO HALFS INTO COMPOUNDS! */
+
+    istringstream streamy2(firstHalf);
+    istringstream streamy3(secondHalf);
+
+    while(getline(streamy2, tempToken , '+')){
+
+        cout << "\nHere is a token:" << tempToken << "\n";
+
+        this->DATA_BASE.tokens.push_back(tempToken);
+
+    }
+
+    while(getline(streamy3, tempToken , '+')){
+
+        cout << "\nHere is a token:" << tempToken << "\n";
+
+        this->DATA_BASE.tokens.push_back(tempToken);
+
+    }
+
+    /* Now create the nice package for the calculator */
+
+    for(i = 0; i < this->DATA_BASE.tokens.size(); i++){
+
+
+        this -> package.push_back(compound());
+
+        // Call the parser
+
+        parseInput(this->DATA_BASE.tokens[i]);
+
+        // Modify the package
+
+        package[i].compoundString = this->DATA_BASE.tokens[i];
+        package[i].compoundElements = this->DATA_BASE.elementNames;
+        package[i].compoundElementsAmounts = this->DATA_BASE.amountOfElement;
+
+    }
+
+
 }
 
 
@@ -603,3 +633,13 @@ int ChemEquation::index(string element) {
 
     return i;
 }
+
+vector <compound> ChemEquation::getCompoundData(){
+
+    tokenizer();
+
+    return this->package;
+
+
+}
+
