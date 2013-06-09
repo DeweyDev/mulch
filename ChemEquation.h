@@ -9,6 +9,10 @@ struct compound{
 
 };
 
+namespace ChemEquation {
+
+}
+
 class ChemEquation
 {
 public:
