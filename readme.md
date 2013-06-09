@@ -2,9 +2,9 @@
 
 A Chemistry Stoichiometry C++ Library
 
-- [x] Parses Chemical Equations
-- [ ] Balances Chemical Equations
-- [ ] Does g/mol conversions, etc
+- [x]Parses Chemical Equations
+- [ ]Balances Chemical Equations
+- [ ]Does g/mol conversions, etc
 
 This project is currently in development phase, and there are no stable releases available.
 
