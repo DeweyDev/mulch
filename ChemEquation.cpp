@@ -34,6 +34,8 @@
 #include <cstring>
 #include <sstream>
 
+using namespace mulch;
+
 // Constructors
 
 ChemEquation::ChemEquation(string equationstringgiven)

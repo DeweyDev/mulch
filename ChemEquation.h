@@ -1,6 +1,11 @@
 #pragma once
 #include "std_lib_facilities.h"
 
+namespace mulch {
+
+
+
+
 struct compound{
 
         string compoundString;
@@ -8,10 +13,6 @@ struct compound{
         vector <int> compoundElementsAmounts;
 
 };
-
-namespace ChemEquation {
-
-}
 
 class ChemEquation
 {
@@ -105,3 +106,5 @@ public:
 
 
 };
+
+}

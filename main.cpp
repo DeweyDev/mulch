@@ -18,12 +18,12 @@ int main( void ){
 
     getline(cin,stuff);
 
-    ChemEquation secondone(stuff);
+    mulch::ChemEquation secondone(stuff);
 
     cout << "\n" << secondone.getEquation() << "\n";
 
 
-    vector <compound> dataBlob = secondone.getCompoundData();
+    vector <mulch::compound> dataBlob = secondone.getCompoundData();
 
     for(i = 0; i < dataBlob.size(); i++){
 
