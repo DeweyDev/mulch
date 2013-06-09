@@ -2,6 +2,9 @@
 
 A Chemistry Stoichiometry C++ Library
 
+![Orange](http://www.arktimes.com/binary/fedc/1305756869-orange.png)
+Format: ![This is an orange](url)
+
 Parses Chemical Equations
 Balances Chemical Equations
 Does g/mol conversions, etc
