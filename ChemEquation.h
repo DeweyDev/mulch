@@ -34,8 +34,11 @@ public:
 
     vector <compound> package;
 
-
-    // Public variables that will hold shit
+    /** INTERFACE STRUCTURE
+    //
+    //  A nice structure which serves as a common database for member functions
+    //
+    */
 
     typedef struct
     {
@@ -97,6 +100,8 @@ public:
     string getEquation();
 
     vector <compound> getCompoundData();
+
+    vector <string> getCompoundStrings();
 
     // Constructors and deconstructors
 

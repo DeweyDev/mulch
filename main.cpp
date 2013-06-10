@@ -13,15 +13,19 @@ int main( void ){
 
 	string stuff;
 
-
     printf("\n====Test 1: Constructor and Set Input and Tokenizer======\n");
 
     getline(cin,stuff);
 
+    // Test Constructor
+
     mulch::ChemEquation secondone(stuff);
+
+    // Test getEquation()
 
     cout << "\n" << secondone.getEquation() << "\n";
 
+    // Test getCompoundData()
 
     vector <mulch::compound> dataBlob = secondone.getCompoundData();
 
@@ -38,6 +42,13 @@ int main( void ){
         }
 
     }
+
+    // Test the getCompoundStrings()
+
+    cout << "\nSecond Compound is: " << secondone.getCompoundStrings()[1];
+
+
+    // Test calculator functions
 
 
     printf("\n=====Test 3: Calculating Molar Mass======\n");

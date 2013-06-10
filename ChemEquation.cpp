@@ -12,9 +12,9 @@
 //
 //  File:       ChemEquation.cpp
 //
-//  Contents:   parses a given chemical equation
-//              finds the elements present as well as their quantities
-//              returns two parallel vectors .
+//  Contents:   The main class of the mulch libary
+//              Holds multiple methods
+//              Implementation of ChemEquation.h
 //
 //  Classes:    ChemEquation
 //
@@ -61,7 +61,6 @@ void ChemEquation::grabInput(){
 
     fgets(this -> input,60,stdin);
 
-    /* TODO: CONVERT THIS INTO A STRING*/
 
 }
 
@@ -636,12 +635,33 @@ int ChemEquation::index(string element) {
     return i;
 }
 
+/** getCompoundData()
+/
+/   A nice friendly function which returns an vector packed with structs
+/   (within the structs are more vectors)
+/*/
+
 vector <compound> ChemEquation::getCompoundData(){
 
     tokenizer();
 
     return this->package;
 
+
+}
+
+/** getCompoundStrings()
+/
+/   A nice friendly function which returns an vector packed with strings
+/   Each string is a compound of the equation
+/   They are in order
+/*/
+
+vector <string> ChemEquation::getCompoundStrings(){
+
+    tokenizer();
+
+    return this->DATA_BASE.tokens;
 
 }
 
