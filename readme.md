@@ -26,6 +26,24 @@ mulch::ChemEquation combustion;
 combustion.setEquation("CH4 + O2 = H2O + CO2");
 ```
 
+You can then get the equation you just set in string form.
+
+```
+string methane = combustion.getEquation();
+```
+
+You can then get each compound of the equation packed into a STL vector.
+
+```
+vector <string> methaneCompounds = combustion.getCompoundStrings();
+```
+
+Want even more data about the compounds, such as the element count, etc? This function will return a vector of structs. Each struct contains data about one compound.
+
+```
+vector <mulch::compound> methaneCompounds = combustion.getCompoundData();
+```
+
 ###Current Plan
 
 Currently there are three repos of Mulch. This is the main repository, and there are two personal repos over @shrimpboyho and @dpwivagg 
