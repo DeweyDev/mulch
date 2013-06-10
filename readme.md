@@ -10,6 +10,22 @@ Does g/mol conversions, etc
 
 This project is currently in development phase, and there are no stable releases available.
 
+###How To Use
+
+Using the mulch library is very simple. You can create a chemical equation by constructing a new ```ChemEquation``` object and supplying a string with the chemical equation.
+
+```
+mulch::ChemEquation combustion("CH4 + O2 = H2O + CO2");
+```
+
+You can also create a default ChemEquation object and set the equation later on.
+
+```
+mulch::ChemEquation combustion;
+
+combustion.setEquation("CH4 + O2 = H2O + CO2");
+```
+
 ###Current Plan
 
 Currently there are three repos of Mulch. This is the main repository, and there are two personal repos over @shrimpboyho and @dpwivagg 
