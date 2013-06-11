@@ -509,6 +509,18 @@ void ChemEquation::elementLookup(int length, int compound) {
 
 	double molarMass;
 
+	getline(cin,stuff);
+
+    // Test Constructor
+
+    mulch::ChemEquation secondone(stuff);
+
+    // Test getEquation()
+
+    cout << "\n" << secondone.getEquation() << "\n";
+
+	vector <mulch::compound> calculationData = secondone.getCompoundData();
+
 	for(int i = 0; i < length; i++) {
 
         molarMass = calculateMM(dataBlob[compound].compoundElements[i], dataBlob[compound].compoundElementsAmounts[i]);
