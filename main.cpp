@@ -27,7 +27,7 @@ int main( void ){
 
     // Test getCompoundData()
 
-    vector <mulch::compound> dataBlob = secondone.getCompoundData();
+    dataBlob = secondone.getCompoundData();
 
     for(i = 0; i < dataBlob.size(); i++){
 
@@ -53,7 +53,7 @@ int main( void ){
 
     printf("\n=====Test 3: Calculating Molar Mass======\n");
 
-    secondone.elementLookup(dataBlob.size(), 3); //Implement Newlyn's vectors here
+    secondone.elementLookup(dataBlob[1].compoundElements.size(), dataBlob[1]); //Implement Newlyn's vectors here
 
 	keep_window_open();
 	return 0;

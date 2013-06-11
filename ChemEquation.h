@@ -24,6 +24,8 @@ public:
 
     // Representation of the token the parser is currently working with
 
+    vector <compound> dataBlob;
+
     char input[60];
 
     /** PACKAGE VARIABLES

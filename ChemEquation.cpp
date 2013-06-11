@@ -505,17 +505,17 @@ void ChemEquation::tokenizer(){
 individual element in a compound or series of elements that are given
 to it.*/
 
-void ChemEquation::elementLookup(int length, int position) {
+void ChemEquation::elementLookup(int length, int compound) {
 
 	double molarMass;
 
 	for(int i = 0; i < length; i++) {
 
-        vector <mulch::compound> dataBlob = secondone.getCompoundData();
 
-        molarMass = calculateMM(dataBlob[i].compoundElements[i + position - 1], /*elementQuantites[i + position - 1]*/1);
 
-        cout << "\n Molar Mass of " << elementNames[i + position - 1] << ": " << molarMass << endl;
+        molarMass = calculateMM(dataBlob[compound].compoundElements[i + position - 1], dataBlob[compound].compoundElementsAmounts[i + position - 1]);
+
+        cout << "\n Molar Mass of " << datablob[compound].compoundElements[i + position - 1] << ": " << molarMass << endl;
 
     }
 }
