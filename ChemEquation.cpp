@@ -507,44 +507,13 @@ to it.*/
 
 void ChemEquation::elementLookup(int length, int position) {
 
-    /*These vectors will be established based on user input.
-    They will be public and the calculateMM() constructor will
-    get them rather than having them fed into this void manually.
-
-    ============================================================*/
-
-    vector <string> elementNames;
-
-    elementNames.push_back("C");
-    elementNames.push_back("H");
-    elementNames.push_back("O");
-    elementNames.push_back("O");
-    elementNames.push_back("H");
-    elementNames.push_back("O");
-    elementNames.push_back("C");
-    elementNames.push_back("O");
-
-    vector <double> elementQuantites;
-
-    elementQuantites.push_back(6);
-    elementQuantites.push_back(12);
-    elementQuantites.push_back(6);
-    elementQuantites.push_back(2);
-    elementQuantites.push_back(2);
-    elementQuantites.push_back(1);
-    elementQuantites.push_back(1);
-    elementQuantites.push_back(2);
-
-    /*============================================================
-    The part of the method that will be used by itself in
-    the final Mulch begins here.*/
-
-
 	double molarMass;
 
 	for(int i = 0; i < length; i++) {
 
-        molarMass = calculateMM(elementNames[i + position - 1], elementQuantites[i + position - 1]);
+        vector <mulch::compound> dataBlob = secondone.getCompoundData();
+
+        molarMass = calculateMM(dataBlob[i].compoundElements[i + position - 1], /*elementQuantites[i + position - 1]*/1);
 
         cout << "\n Molar Mass of " << elementNames[i + position - 1] << ": " << molarMass << endl;
 
