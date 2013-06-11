@@ -511,11 +511,9 @@ void ChemEquation::elementLookup(int length, int compound) {
 
 	for(int i = 0; i < length; i++) {
 
+        molarMass = calculateMM(dataBlob[compound].compoundElements[i], dataBlob[compound].compoundElementsAmounts[i]);
 
-
-        molarMass = calculateMM(dataBlob[compound].compoundElements[i + position - 1], dataBlob[compound].compoundElementsAmounts[i + position - 1]);
-
-        cout << "\n Molar Mass of " << datablob[compound].compoundElements[i + position - 1] << ": " << molarMass << endl;
+        cout << "\n Molar Mass of " << datablob[compound].compoundElements[i] << ": " << molarMass << endl;
 
     }
 }
