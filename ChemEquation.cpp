@@ -509,26 +509,6 @@ void ChemEquation::elementLookup(mulch::compound chemicalCompound) {
 
 	double molarMass;
 
-	/*
-
-	string stuff;
-
-	cout << "Enter a balanced chemical equation below: " << endl;
-
-	getline(cin,stuff);
-
-    mulch::ChemEquation secondone(stuff);
-
-    cout << "\n" << secondone.getEquation() << "\n";
-
-    cout << "Enter the position of the compound you would like to \n check the molar mass of: ";
-
-    cin >>
-
-	vector <mulch::compound> calculationData = secondone.getCompoundData();
-
-	*/
-
 	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
         molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
