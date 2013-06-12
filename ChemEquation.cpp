@@ -608,6 +608,25 @@ int ChemEquation::index(string element) {
     elementSymbols.push_back("Ar");
     elementSymbols.push_back("K");
     elementSymbols.push_back("Ca");
+    elementSymbols.push_back("Sc");
+    elementSymbols.push_back("Ti");
+    elementSymbols.push_back("V");
+    elementSymbols.push_back("Cr");
+    elementSymbols.push_back("Mn");
+    elementSymbols.push_back("Fe");
+    elementSymbols.push_back("Co");
+    elementSymbols.push_back("Ni");
+    elementSymbols.push_back("Cu");
+    elementSymbols.push_back("Zn");
+    elementSymbols.push_back("Ga");
+    elementSymbols.push_back("Ge");
+    elementSymbols.push_back("As");
+    elementSymbols.push_back("Se");
+    elementSymbols.push_back("Br");
+    elementSymbols.push_back("Kr");
+    elementSymbols.push_back("Rb");
+    elementSymbols.push_back("Sr");
+    elementSymbols.push_back("Y");
 
     vector <int> atomicNumbers;
 
@@ -632,6 +651,7 @@ int ChemEquation::index(string element) {
 
     return i;
 }
+
 
 /** getCompoundData()
 /
