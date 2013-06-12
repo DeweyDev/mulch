@@ -22,7 +22,6 @@ You can also create a default ChemEquation object and set the equation later on.
 
 ```
 mulch::ChemEquation combustion;
-
 combustion.setEquation("CH4 + O2 = H2O + CO2");
 ```
 
