@@ -558,6 +558,20 @@ double ChemEquation::calculateMM(string element, double quantity){
     elementMasses.push_back(50.9415);
     elementMasses.push_back(51.9961);
     elementMasses.push_back(54.938045);
+    elementMasses.push_back(55.845);
+    elementMasses.push_back(58.933195);
+    elementMasses.push_back(58.6934);
+    elementMasses.push_back(63.546);
+    elementMasses.push_back(65.38);
+    elementMasses.push_back(69.723);
+    elementMasses.push_back(72.63);
+    elementMasses.push_back(74.92160);
+    elementMasses.push_back(78.96);
+    elementMasses.push_back(79.904);
+    elementMasses.push_back(83.798);
+    elementMasses.push_back(85.4678);
+    elementMasses.push_back(87.62);
+    elementMasses.push_back(88.90585);
 
 	final = elementMasses[i] * quantity;
 
