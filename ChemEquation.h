@@ -81,7 +81,7 @@ public:
 
     int index(string element);
 
-    void elementLookup(int length, int position);
+    void elementLookup(mulch::compound);
 
     double calculateMM(string element, double quantity);
 

@@ -53,7 +53,7 @@ int main( void ){
 
     printf("\n=====Test 3: Calculating Molar Mass======\n");
 
-    secondone.elementLookup(4, 3);
+    secondone.elementLookup(dataBlob[0]);
 
 	keep_window_open();
 	return 0;

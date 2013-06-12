@@ -505,7 +505,7 @@ void ChemEquation::tokenizer(){
 individual element in a compound or series of elements that are given
 to it.*/
 
-void ChemEquation::elementLookup(int length, int compound) {
+void ChemEquation::elementLookup(mulch::compound chemicalCompound) {
 
 	double molarMass;
 
@@ -529,11 +529,11 @@ void ChemEquation::elementLookup(int length, int compound) {
 
 	*/
 
-	for(int i = 0; i < length; i++) {
+	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
-        molarMass = calculateMM(dataBlob[compound].compoundElements[i], dataBlob[compound].compoundElementsAmounts[i]);
+        molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
 
-        cout << "\n Molar Mass of " << datablob[compound].compoundElements[i] << ": " << molarMass << endl;
+        cout << "\n Molar Mass of " << chemicalCompound.compoundElements[i] << ": " << molarMass << endl;
 
     }
 }
