@@ -531,6 +531,8 @@ double ChemEquation::calculateMM(string element, double quantity){
 
 	vector <double> elementMasses;
 
+	/**All element masses are below.  Do not change these numbers!!!*/
+
 	elementMasses.push_back(1.008);
 	elementMasses.push_back(4.002602);
     elementMasses.push_back(6.94);
@@ -541,6 +543,21 @@ double ChemEquation::calculateMM(string element, double quantity){
     elementMasses.push_back(15.999);
     elementMasses.push_back(18.9984032);
     elementMasses.push_back(20.1719);
+    elementMasses.push_back(22.98976928);
+    elementMasses.push_back(24.3050);
+    elementMasses.push_back(26.981);
+    elementMasses.push_back(28.085);
+    elementMasses.push_back(30.973762);
+    elementMasses.push_back(32.06);
+    elementMasses.push_back(35.45);
+    elementMasses.push_back(39.948);
+    elementMasses.push_back(39.0983);
+    elementMasses.push_back(40.078);
+    elementMasses.push_back(44.955912);
+    elementMasses.push_back(47.867);
+    elementMasses.push_back(50.9415);
+    elementMasses.push_back(51.9961);
+    elementMasses.push_back(54.938045);
 
 	final = elementMasses[i] * quantity;
 
