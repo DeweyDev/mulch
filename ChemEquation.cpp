@@ -579,13 +579,15 @@ double ChemEquation::calculateMM(string element, double quantity){
 	return final;
 }
 
-/*The Indexing method is where the database of elements is contained.
-This method will look up each element and return an integer that can
-be used in double calculateMM() to find and calculate molar mass.*/
+    /*The Indexing method is where the database of elements is contained.
+    This method will look up each element and return an integer that can
+    be used in double calculateMM() to find and calculate molar mass.*/
 
 int ChemEquation::index(string element) {
     /*Returns an integer that can be used in a case statement for element lookup.*/
     int i;
+
+    /**All element symobls are below.  Do not change these strings!!!*/
 
     vector <string> elementSymbols;
     elementSymbols.push_back("H");

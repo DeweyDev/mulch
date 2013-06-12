@@ -3,113 +3,109 @@
 
 namespace mulch {
 
-
-
-
-struct compound{
+    struct compound {
 
         string compoundString;
         vector <string> compoundElements;
         vector <int> compoundElementsAmounts;
 
-};
+    };
 
-class ChemEquation
-{
-public:
+    class ChemEquation {
 
-    // Representations of the entire equation
+        public:
 
-    string equationstring;
+        // Representations of the entire equation
 
-    // Representation of the token the parser is currently working with
+        string equationstring;
 
-    char input[60];
+        // Representation of the token the parser is currently working with
 
-    /** PACKAGE VARIABLES
-    //
-    //  These are some important structs/stuff that you don't want to mess with
-    //
-    */
-
-    vector <compound> package;
-
-    /** INTERFACE STRUCTURE
-    //
-    //  A nice structure which serves as a common database for member functions
-    //
-    */
-
-    typedef struct
-    {
-
-        // Vectors that the parser uses (these vectors will constantly be changing)
-
-        vector <string> elementNames;
-        vector <int> amountOfElement;
-
-        // Vectors that the tokenizer uses
-
-        vector <string> tokens;
-
-        // Vectors that the calculator uses
-
-        vector <string> elementSymbols;
-
-        vector <int> atomicNumbers;
-
-        vector <double> elementMasses;
+        char input[60];
 
 
+        /** PACKAGE VARIABLES
+        //
+        //  These are some important structs/stuff that you don't want to mess with
+        //
+        */
 
-    } databank;
-
-    // Instance of the database
-
-    databank DATA_BASE;
-
-    // Parser Member functions
-
-    void grabInput();
-
-    void parseInput(string equationstring);
-
-    void tokenizer();
+        vector <compound> package;
 
 
-    // Calculator member functions
+        /** INTERFACE STRUCTURE
+        //
+        //  A nice structure which serves as a common database for member functions
+        //
+        */
 
-    int index(string element);
+        typedef struct {
 
-    void elementLookup(mulch::compound);
+            // Vectors that the parser uses (these vectors will constantly be changing)
 
-    double calculateMM(string element, double quantity);
+            vector <string> elementNames;
+            vector <int> amountOfElement;
+
+            // Vectors that the tokenizer uses
+
+            vector <string> tokens;
+
+            // Vectors that the calculator uses
+
+            vector <string> elementSymbols;
+
+            vector <int> atomicNumbers;
+
+            vector <double> elementMasses;
+        } databank;
+
+        // Instance of the database
+
+        databank DATA_BASE;
+
+        // Parser Member functions
+
+        void grabInput();
+
+        void parseInput(string equationstring);
+
+        void tokenizer();
+
+        // Calculator member functions
+
+        int index(string element);
+
+        void elementLookup(mulch::compound);
+
+        double calculateMM(string element, double quantity);
 
 
-    /** GENERAL PUBLIC FUNCTIONS
-    //
-    //  These are the functions that are meant to be used by the general public
-    //
-    //
-    */
+        /** GENERAL PUBLIC FUNCTIONS
+        //
+        //  These are the functions that are meant to be used by the general public
+        //
+        //
+        */
 
-    // Getters and setters member functions
+        // Getters and setters member functions
 
-    void setEquation(string givenequation);
+        void setEquation(string givenequation);
 
-    string getEquation();
+        string getEquation();
 
-    vector <compound> getCompoundData();
+        vector <compound> getCompoundData();
 
-    vector <string> getCompoundStrings();
+        vector <string> getCompoundStrings();
 
-    // Constructors and deconstructors
+        // Constructors and deconstructors
 
-    ChemEquation(string equationstring);
-    ChemEquation();
-    ~ChemEquation(void);
+        ChemEquation(string equationstring);
+
+        ChemEquation();
+
+        ~ChemEquation(void);
 
 
-};
+    };
 
 }
