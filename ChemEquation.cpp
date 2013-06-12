@@ -509,6 +509,8 @@ void ChemEquation::elementLookup(int length, int compound) {
 
 	double molarMass;
 
+    /*
+
 	getline(cin,stuff);
 
     // Test Constructor
@@ -520,6 +522,8 @@ void ChemEquation::elementLookup(int length, int compound) {
     cout << "\n" << secondone.getEquation() << "\n";
 
 	vector <mulch::compound> calculationData = secondone.getCompoundData();
+
+	*/
 
 	for(int i = 0; i < length; i++) {
 
