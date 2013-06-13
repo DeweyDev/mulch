@@ -63,9 +63,9 @@ int main( void ){
 
     */
 
-    for(int f = 0; f < datablob.size(); f++) {
+    for(int i = 0; i < dataBlob.size(); i++) {
 
-        secondone.elementLookup(dataBlob[f]);
+        secondone.elementLookup(dataBlob[i]);
 
     }
 
