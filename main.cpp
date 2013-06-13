@@ -53,13 +53,17 @@ int main( void ){
 
     printf("\n\n=====Test 3: Calculating Molar Mass======\n\n");
 
+    /*
+
     cout << "Identify the compound you would like to check the molar mass of: ";
 
     int compoundID;
 
     cin >> compoundID;
 
-    secondone.elementLookup(dataBlob[compoundID - 1]);
+    */
+
+    secondone.elementLookup(dataBlob[1]);
 
 	keep_window_open();
 	return 0;
