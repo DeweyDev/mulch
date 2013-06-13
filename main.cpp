@@ -63,7 +63,11 @@ int main( void ){
 
     */
 
-    secondone.elementLookup(dataBlob[1]);
+    for(int f = 0; f < datablob.size(); f++) {
+
+        secondone.elementLookup(dataBlob[f]);
+
+    }
 
 	keep_window_open();
 	return 0;
