@@ -65,9 +65,13 @@ int main( void ){
 
     for(int i = 0; i < dataBlob.size(); i++) {
 
-        secondone.elementLookup(dataBlob[i]);
+        secondone.molarMassLookup(dataBlob[i]);
 
     }
+
+    printf("\n\n====Test 4: Converting from Grams to Moles====\n\n");
+
+    secondone.gramsToMolarMass(dataBlob[0], 10);
 
 	keep_window_open();
 	return 0;

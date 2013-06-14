@@ -518,7 +518,31 @@ void ChemEquation::molarMassLookup(mulch::compound chemicalCompound) {
     }
 }
 
-void gramsToMassLookup(mulch::compound, int compound, double grams)
+void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams) {
+
+    double numberMoles;
+
+    double molarMass;
+
+    double finalMass = 0;
+
+    double finalMoles;
+
+	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
+
+        molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
+
+        finalMass = finalMass + molarMass;
+
+    }
+
+    cout << "The final molar mass of " << chemicalCompound.compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
+
+    finalMoles = (grams / finalMass);
+
+    cout << grams << " grams of " << chemicalCompound.compoundString << " is equivalent to " << finalMoles << " moles of " << chemicalCompound.compoundString << endl;
+
+}
 
 /*CalculateMM will calculate the molar mass of each individual
 element before feeding this data back to elementLookup() to be
