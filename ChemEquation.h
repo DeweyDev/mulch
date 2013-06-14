@@ -79,7 +79,7 @@ namespace mulch {
 
         void gramsToMolarMass(mulch::compound chemicalCompound, double grams);
 
-        double calculateMM(string element, double quantity);
+        double calculateMM(string element, int quantity);
 
 
         /** GENERAL PUBLIC FUNCTIONS

@@ -548,7 +548,7 @@ void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double gra
 element before feeding this data back to elementLookup() to be
 printed to the screen.  It contains the molar mass of every element.*/
 
-double ChemEquation::calculateMM(string element, double quantity){
+double ChemEquation::calculateMM(string element, int quantity){
 
 	double final;
     int i;
