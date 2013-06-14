@@ -501,13 +501,17 @@ void ChemEquation::tokenizer(){
 
 /** Calculator methods begin here*/
 
-/*Element Lookup is responsible for finding the molar masses of each
+/*Molar Mass Lookup is responsible for finding the molar masses of each
 individual element in a compound or series of elements that are given
 to it.*/
 
 void ChemEquation::molarMassLookup(mulch::compound chemicalCompound) {
 
+	//The final molar mass that will be given for each compound:
+
 	double molarMass;
+
+	//For loop that gets the molar mass of every compound in the mulch::compound
 
 	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
@@ -518,7 +522,13 @@ void ChemEquation::molarMassLookup(mulch::compound chemicalCompound) {
     }
 }
 
+/*Grams to Molar Mass is responsible for taking a given amound in grams
+of a reactant or product and converting the amount of that element or
+compound into a useable value in moles.*/
+
 void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams) {
+
+    //Doubles that will hold important mass numbers
 
     double numberMoles;
 
@@ -527,6 +537,9 @@ void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double gra
     double finalMass = 0;
 
     double finalMoles;
+
+    //For loop that checks the molar mass of every element in the mulch::compound
+    //and adds them all together for a final mass number
 
 	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
@@ -537,6 +550,8 @@ void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double gra
     }
 
     cout << "The final molar mass of " << chemicalCompound.compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
+
+    //Conversion from grams to moles using gram value (input) and mole ratio (calculated)
 
     finalMoles = (grams / finalMass);
 
