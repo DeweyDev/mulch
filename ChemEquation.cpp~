@@ -97,9 +97,7 @@ void ChemEquation::parseInput(string equationstring){
 	int tempsum = 0;                    // A temporary sum of the amount of elements
 	bool paren = false;                 // A boolean representing the state of parenthesis in the equation
 	int digitafterparen;                // In integer representing the number after the parenthesis
-    int firstcoefficientOfCompound;     // An integer representing the coefficient of the compound
-	string digitCofString;              // A string which represents the coefficient (if it is more than one digit)
-
+    int firstcoefficientOfCompound;          // An integer representing the coefficient of the compound
 
 
     // Turn string given into an operatable character array
@@ -129,28 +127,26 @@ void ChemEquation::parseInput(string equationstring){
 
 	for(i = 0; i < endOfString; i++){
 
+
+        // See if we've hit a first number
+
+        if(isdigit(input[i])){
+
+            // Know that this is the coefficient number
+            firstcoefficientOfCompound = input[i] - '0';
+            break;
+        }
+
         // If we've hit a letter
 
-        if(isalpha(input[i]) || input[i] == '('){
+        if(isalpha(input[i])){
 
             // Know that this is the coefficient number
             firstcoefficientOfCompound = 1;
             break;
         }
 
-        // See if we've hit a first numbers
-
-        if(isdigit(input[i])){
-
-            digitCofString.push_back(input[i]);
-
-        }
-
 	}
-
-	// Create the coefficient
-
-	firstcoefficientOfCompound = atoi(digitCofString.c_str());
 
 
 	// Begin scanning the string character by character
