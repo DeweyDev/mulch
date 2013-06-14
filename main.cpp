@@ -71,6 +71,16 @@ int main( void ){
 
     printf("\n\n====Test 4: Converting from Grams to Moles====\n\n");
 
+    /*
+
+    cout << "Please enter the amount in grams of the first compound: ";
+
+    int compoundGrams;
+
+    cin >> compoundGrams;
+
+    */
+
     secondone.gramsToMolarMass(dataBlob[0], 10);
 
 	keep_window_open();
