@@ -124,17 +124,13 @@ void ChemEquation::parseInput(string equationstring){
 
 	printf("Determined the end of the string to be at the index of %d\n", endOfString);
 
-
-	// Determine to see if there is a coefficient added at the begining
+    digitCofString = "1";
 
 	for(i = 0; i < endOfString; i++){
 
-        // If we've hit a letter
+        // If if we've hit something else
 
         if(isalpha(input[i]) || input[i] == '('){
-
-            // Know that this is the coefficient number
-            firstcoefficientOfCompound = 1;
             break;
         }
 
@@ -149,6 +145,10 @@ void ChemEquation::parseInput(string equationstring){
 	}
 
 	// Create the coefficient
+
+	if(digitCofString.size() > 1){
+        digitCofString.erase(0,1);
+	}
 
 	firstcoefficientOfCompound = atoi(digitCofString.c_str());
 
@@ -277,6 +277,7 @@ void ChemEquation::parseInput(string equationstring){
 					if(isdigit(input[g + 1]) && paren == false){
 
 						digitsFound.push_back(input[g + 1] - '0');
+						cout << "Pushed in: " << input[g + 1] - '0';
 
 					}
 
@@ -413,6 +414,14 @@ void ChemEquation::parseInput(string equationstring){
 		}
 
 		amountOfFoundElements.push_back(tempsum * firstcoefficientOfCompound);
+
+		/*
+
+		cout << "Temp Sum = " << tempsum;
+		cout << "First Coff = " << firstcoefficientOfCompound;
+		cout << "Shoved in: " << tempsum * firstcoefficientOfCompound;
+
+		*/
 
 		// Reset sum and clear digitsFound
 
@@ -729,4 +738,3 @@ vector <string> ChemEquation::getCompoundStrings(){
     return this->DATA_BASE.tokens;
 
 }
-
