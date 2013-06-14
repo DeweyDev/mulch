@@ -97,9 +97,7 @@ void ChemEquation::parseInput(string equationstring){
 	int tempsum = 0;                    // A temporary sum of the amount of elements
 	bool paren = false;                 // A boolean representing the state of parenthesis in the equation
 	int digitafterparen;                // In integer representing the number after the parenthesis
-    int firstcoefficientOfCompound;     // An integer representing the coefficient of the compound
-	string digitCofString;              // A string which represents the coefficient (if it is more than one digit)
-
+    int firstcoefficientOfCompound;          // An integer representing the coefficient of the compound
 
 
     // Turn string given into an operatable character array
@@ -129,28 +127,26 @@ void ChemEquation::parseInput(string equationstring){
 
 	for(i = 0; i < endOfString; i++){
 
+
+        // See if we've hit a first number
+
+        if(isdigit(input[i])){
+
+            // Know that this is the coefficient number
+            firstcoefficientOfCompound = input[i] - '0';
+            break;
+        }
+
         // If we've hit a letter
 
-        if(isalpha(input[i]) || input[i] == '('){
+        if(isalpha(input[i])){
 
             // Know that this is the coefficient number
             firstcoefficientOfCompound = 1;
             break;
         }
 
-        // See if we've hit a first numbers
-
-        if(isdigit(input[i])){
-
-            digitCofString.push_back(input[i]);
-
-        }
-
 	}
-
-	// Create the coefficient
-
-	firstcoefficientOfCompound = atoi(digitCofString.c_str());
 
 
 	// Begin scanning the string character by character
@@ -505,17 +501,13 @@ void ChemEquation::tokenizer(){
 
 /** Calculator methods begin here*/
 
-/*Molar Mass Lookup is responsible for finding the molar masses of each
+/*Element Lookup is responsible for finding the molar masses of each
 individual element in a compound or series of elements that are given
 to it.*/
 
 void ChemEquation::molarMassLookup(mulch::compound chemicalCompound) {
 
-	//The final molar mass that will be given for each compound:
-
 	double molarMass;
-
-	//For loop that gets the molar mass of every compound in the mulch::compound
 
 	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
@@ -526,13 +518,7 @@ void ChemEquation::molarMassLookup(mulch::compound chemicalCompound) {
     }
 }
 
-/*Grams to Molar Mass is responsible for taking a given amound in grams
-of a reactant or product and converting the amount of that element or
-compound into a useable value in moles.*/
-
 void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams) {
-
-    //Doubles that will hold important mass numbers
 
     double numberMoles;
 
@@ -541,9 +527,6 @@ void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double gra
     double finalMass = 0;
 
     double finalMoles;
-
-    //For loop that checks the molar mass of every element in the mulch::compound
-    //and adds them all together for a final mass number
 
 	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
@@ -555,8 +538,6 @@ void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double gra
 
     cout << "The final molar mass of " << chemicalCompound.compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
 
-    //Conversion from grams to moles using gram value (input) and mole ratio (calculated)
-
     finalMoles = (grams / finalMass);
 
     cout << grams << " grams of " << chemicalCompound.compoundString << " is equivalent to " << finalMoles << " moles of " << chemicalCompound.compoundString << endl;
@@ -567,7 +548,7 @@ void ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double gra
 element before feeding this data back to elementLookup() to be
 printed to the screen.  It contains the molar mass of every element.*/
 
-double ChemEquation::calculateMM(string element, int quantity){
+double ChemEquation::calculateMM(string element, double quantity){
 
 	double final;
     int i;
