@@ -505,7 +505,7 @@ void ChemEquation::tokenizer(){
 individual element in a compound or series of elements that are given
 to it.*/
 
-void ChemEquation::elementLookup(mulch::compound chemicalCompound) {
+void ChemEquation::molarMassLookup(mulch::compound chemicalCompound) {
 
 	double molarMass;
 
@@ -517,6 +517,8 @@ void ChemEquation::elementLookup(mulch::compound chemicalCompound) {
 
     }
 }
+
+void gramsToMassLookup(mulch::compound, int compound, double grams)
 
 /*CalculateMM will calculate the molar mass of each individual
 element before feeding this data back to elementLookup() to be

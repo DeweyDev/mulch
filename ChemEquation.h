@@ -75,7 +75,9 @@ namespace mulch {
 
         int index(string element);
 
-        void elementLookup(mulch::compound);
+        void molarMassLookup(mulch::compound);
+
+        void gramsToMassLookup(mulch::compound, int compound, double grams);
 
         double calculateMM(string element, double quantity);
 
