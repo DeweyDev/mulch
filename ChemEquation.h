@@ -71,6 +71,8 @@ namespace mulch {
 
         void tokenizer();
 
+        int getSubscripts(int position);
+
         // Calculator member functions
 
         int index(string element);

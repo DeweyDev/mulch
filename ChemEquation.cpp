@@ -738,3 +738,13 @@ vector <string> ChemEquation::getCompoundStrings(){
     return this->DATA_BASE.tokens;
 
 }
+
+// Implementation of getSubscripts()
+
+int ChemEquation::getSubscripts(int position){
+
+    /* TODO: ADD STUFF */
+
+
+
+}
