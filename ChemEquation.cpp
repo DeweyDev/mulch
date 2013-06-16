@@ -741,10 +741,37 @@ vector <string> ChemEquation::getCompoundStrings(){
 
 // Implementation of getSubscripts()
 
-int ChemEquation::getSubscripts(int position){
+int ChemEquation::getSubscripts(int position, int endingPosition){
 
     /* TODO: ADD STUFF */
 
+    string subScriptString = "1";
+    int answer;
 
+    for(position; position < endingPosition; position++){
+
+        if(isalnum(input[position]) || input[position] == '(' || input[position] == '\n'){
+
+            break;
+
+        }
+
+        if(isdigit(input[position])){
+
+            subScriptString.push_back(input[position]);
+
+        }
+
+    }
+
+    if(subScriptString.size() > 1){
+
+        subScriptString.erase(0,1);
+
+    }
+
+    answer = atoi(subScriptString.c_str());
+
+    return answer;
 
 }
