@@ -65,7 +65,13 @@ int main( void ){
 
     for(int i = 0; i < dataBlob.size(); i++) {
 
-        secondone.molarMassLookup(dataBlob[i]);
+        for(int xyz = 0; xyz < dataBlob[i].compoundElements.size(); xyz++) {
+
+            double molarMass = secondone.molarMassLookup(dataBlob[i], xyz);
+
+            cout << "Molar Mass of " << dataBlob[i].compoundElements[xyz] << ": " << molarMass << endl;
+
+        }
 
     }
 
@@ -81,7 +87,11 @@ int main( void ){
 
     */
 
-    secondone.gramsToMolarMass(dataBlob[0], 10);
+    double finalMass = secondone.gramsToMolarMass(dataBlob[0], 10);
+
+    cout << "The final molar mass of " << dataBlob[0].compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
+
+    cout << "10 grams of " << dataBlob[0].compoundString << " is equivalent to " << finalMass << " moles of " << dataBlob[0].compoundString << endl;
 
 	keep_window_open();
 	return 0;
