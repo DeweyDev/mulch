@@ -99,7 +99,7 @@ void ChemEquation::parseInput(string equationstring){
 	int digitafterparen;                // In integer representing the number after the parenthesis
     int firstcoefficientOfCompound;     // An integer representing the coefficient of the compound
 	string digitCofString;              // A string which represents the coefficient (if it is more than one digit)
-
+    int numberReturnedBySubscriptFunc;  // A number returned by the subscript function
 
 
     // Turn string given into an operatable character array
@@ -121,8 +121,6 @@ void ChemEquation::parseInput(string equationstring){
 		endOfString++;
 
 	}
-
-	printf("Determined the end of the string to be at the index of %d\n", endOfString);
 
     digitCofString = "1";
 
@@ -276,8 +274,10 @@ void ChemEquation::parseInput(string equationstring){
 
 					if(isdigit(input[g + 1]) && paren == false){
 
-						digitsFound.push_back(input[g + 1] - '0');
-						cout << "Pushed in: " << input[g + 1] - '0';
+						numberReturnedBySubscriptFunc = this->getSubscripts(g+1,endOfString);
+
+						digitsFound.push_back(numberReturnedBySubscriptFunc);
+
 
 					}
 
@@ -299,14 +299,14 @@ void ChemEquation::parseInput(string equationstring){
 
 							if(input[j] == ')'){
 
-								digitafterparen = input[j + 1] - '0';
+                                digitafterparen = this->getSubscripts(j+1,endOfString);
 								break;
 
 							}
 
 						}
 
-						digitsFound.push_back((input[g + 1] - '0') * digitafterparen);
+						digitsFound.push_back(this->getSubscripts(g+1,endOfString)* digitafterparen);
 
 					}
 
@@ -320,7 +320,7 @@ void ChemEquation::parseInput(string equationstring){
 
 							if(input[j] == ')'){
 
-								digitafterparen = input[j + 1] - '0';
+								digitafterparen = this->getSubscripts(j+1,endOfString);
 								break;
 
 							}
@@ -736,5 +736,42 @@ vector <string> ChemEquation::getCompoundStrings(){
     tokenizer();
 
     return this->DATA_BASE.tokens;
+
+}
+
+// Implementation of getSubscripts()
+
+int ChemEquation::getSubscripts(int position, int endingPosition){
+
+    /* TODO: ADD STUFF */
+
+    string subScriptString = "1";
+    int answer;
+
+    for(position; position < endingPosition; position++){
+
+        if(isalpha(input[position]) || input[position] == ')'  || input[position] == '(' || input[position] == '\n'){
+
+            break;
+
+        }
+
+        if(isdigit(input[position])){
+
+            subScriptString.push_back(input[position]);
+
+        }
+
+    }
+
+    if(subScriptString.size() > 1){
+
+        subScriptString.erase(0,1);
+
+    }
+
+    answer = atoi(subScriptString.c_str());
+
+    return answer;
 
 }
