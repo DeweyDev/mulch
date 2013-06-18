@@ -514,6 +514,8 @@ void ChemEquation::tokenizer(){
 
 /** Calculator methods begin here*/
 
+/** From here I do understand that everything is unstable, give me time becuase I'm working to fix it.*/
+
 /*Molar Mass Lookup is responsible for finding the molar masses of each
 individual element in a compound or series of elements that are given
 to it.*/
