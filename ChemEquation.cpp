@@ -57,7 +57,8 @@ ChemEquation::~ChemEquation(void)
 
 // Get from the standard input (THIS MEMBER FUNCTION MAY SOON BE DEPRECATED)
 
-void ChemEquation::grabInput(){
+void ChemEquation::grabInput()
+{
 
     fgets(this -> input,60,stdin);
 
@@ -66,7 +67,8 @@ void ChemEquation::grabInput(){
 
 // Sets the equation string if not specified in the constructor
 
-void ChemEquation::setEquation(string givenequation){
+void ChemEquation::setEquation(string givenequation)
+{
 
     this -> equationstring = givenequation;
 
@@ -74,7 +76,8 @@ void ChemEquation::setEquation(string givenequation){
 
 // Gets the equation string
 
-string ChemEquation::getEquation(){
+string ChemEquation::getEquation()
+{
 
     return this->equationstring;
 
@@ -82,23 +85,24 @@ string ChemEquation::getEquation(){
 
 // A function that parses each compound and does counting
 
-void ChemEquation::parseInput(string equationstring){
+void ChemEquation::parseInput(string equationstring)
+{
 
-	int endOfString = 0;			    // Variable that stores the end of the string
-	int i;							    // Loop counter
-	int k;                              // Another loop counter
-	int g;                              // Yet Another loop counter
-	int z;                              // HOW MANY!!!!
-	int j;                              // PLEASE STOP!
-	vector <string> foundElements;      // Vector that stores the number of found elements
-	vector <int> digitsFound;           // A vector that accumulates digits that will later be summed
-	vector <int> amountOfFoundElements; // Vector parallel to foundElements
-	string temp;                        // A temporary string
-	int tempsum = 0;                    // A temporary sum of the amount of elements
-	bool paren = false;                 // A boolean representing the state of parenthesis in the equation
-	int digitafterparen;                // In integer representing the number after the parenthesis
+    int endOfString = 0;			    // Variable that stores the end of the string
+    int i;							    // Loop counter
+    int k;                              // Another loop counter
+    int g;                              // Yet Another loop counter
+    int z;                              // HOW MANY!!!!
+    int j;                              // PLEASE STOP!
+    vector <string> foundElements;      // Vector that stores the number of found elements
+    vector <int> digitsFound;           // A vector that accumulates digits that will later be summed
+    vector <int> amountOfFoundElements; // Vector parallel to foundElements
+    string temp;                        // A temporary string
+    int tempsum = 0;                    // A temporary sum of the amount of elements
+    bool paren = false;                 // A boolean representing the state of parenthesis in the equation
+    int digitafterparen;                // In integer representing the number after the parenthesis
     int firstcoefficientOfCompound;     // An integer representing the coefficient of the compound
-	string digitCofString;              // A string which represents the coefficient (if it is more than one digit)
+    string digitCofString;              // A string which represents the coefficient (if it is more than one digit)
     int numberReturnedBySubscriptFunc;  // A number returned by the subscript function
 
 
@@ -114,325 +118,371 @@ void ChemEquation::parseInput(string equationstring){
     input[i] = '\n';
 
 
-	// Determine the end of the string
+    // Determine the end of the string
 
-	while(input[endOfString] != '\n'){
+    while(input[endOfString] != '\n')
+    {
 
-		endOfString++;
+        endOfString++;
 
-	}
+    }
 
     digitCofString = "1";
 
-	for(i = 0; i < endOfString; i++){
+    for(i = 0; i < endOfString; i++)
+    {
 
         // If if we've hit something else
 
-        if(isalpha(input[i]) || input[i] == '('){
+        if(isalpha(input[i]) || input[i] == '(')
+        {
             break;
         }
 
         // See if we've hit a first numbers
 
-        if(isdigit(input[i])){
+        if(isdigit(input[i]))
+        {
 
             digitCofString.push_back(input[i]);
 
         }
 
-	}
+    }
 
-	// Create the coefficient
+    // Create the coefficient
 
-	if(digitCofString.size() > 1){
+    if(digitCofString.size() > 1)
+    {
         digitCofString.erase(0,1);
-	}
+    }
 
-	firstcoefficientOfCompound = atoi(digitCofString.c_str());
-
-
-	// Begin scanning the string character by character
-
-	for(i = 0; i < endOfString; i++){
-
-		// Check to make sure its not a whitespace character
-
-		if(isspace(input[i])){
-			continue;
-		}
-
-		// Check to make sure its not a + or = character or parenthesis
-
-		if((input[i] == '+') || (input[i] == '=')){
-			continue;
-		}
-
-		if((input[i] == '(') || (input[i] == ')')){
-			continue;
-		}
-
-		// Check to make sure its not a number
-
-		if(isdigit(input[i])){
-			continue;
-
-			// We'll worry about counting digits later
-		}
-
-		// Now if its a letter
-
-		if(isalpha(input[i])){
-
-			// We need to check if its a single letter or a double letter element.
-
-			/* SINGLE LETTER CHECK! */
-
-			if(isupper(input[i]) && ( isupper(input[i+1]) || isdigit(input[i+1]) || isspace(input[i+1]) || input[i+1] == '(' || input[i+1] == ')' || input[i+1] == '+' || input[i+1] == '=')){
-
-				temp.push_back(input[i]);
-
-				// Inject into the vector only if it isn't already in there
-
-				for(k = 0; k < foundElements.size(); k++){
-					if(temp == foundElements[k]){
-						break;
-					}
-				}
-
-				if(k == foundElements.size()){
-					foundElements.push_back(temp);
-				}
-
-				// Clear teh string
-
-				temp.clear();
-
-			}
-
-			/* DOUBLE LETTER CHECK! */
-
-			if(isupper(input[i]) && (!isupper(input[i+1])) && (!isspace(input[i+1])) && (!isdigit(input[i+1])) && (input[i+1] != '+')  && (input[i+1] != '=')  && (input[i+1] != ')')  && (input[i+1] != '(')){
-
-				temp.push_back(input[i]);
-				temp.push_back(input[i+1]);
-
-				// Inject into the vector only if it isn't already in there
-
-				for(k = 0; k < foundElements.size(); k++){
-					if(temp == foundElements[k]){
-						break;
-					}
-				}
-
-				if(k == foundElements.size()){
-					foundElements.push_back(temp);
-				}
-
-				// Clear teh string
-
-				temp.clear();
-
-			}
-
-		}
-
-	}
-
-	// Now match the vector the public accesible vector
-
-	this->DATA_BASE.elementNames = foundElements;
-
-	/* BEGIN COUNTING THE AMOUNT OF ELEMENTS */
-
-	// Loop through each of the found elements
-
-	for(i = 0; i < foundElements.size(); i++){
-
-		// Find instance of the element in the string of input
-
-		for(g = 0; g < endOfString; g++){
-
-			// See if we've hit parenthesis
-
-			if(input[g] == '('){
-				paren = true;
-				continue;
-			}
-
-			if(input[g] == ')'){
-				paren = false;
-				continue;
-			}
-
-			// See if we're looking for a single letter element
-
-			if(foundElements[i].size() == 1){
-
-				if(input[g] == foundElements[i].at(0)){
-
-					// Check to see if numbers are present after the element name and we're not in parenthesis mode
-
-					if(isdigit(input[g + 1]) && paren == false){
-
-						numberReturnedBySubscriptFunc = this->getSubscripts(g+1,endOfString);
-
-						digitsFound.push_back(numberReturnedBySubscriptFunc);
+    firstcoefficientOfCompound = atoi(digitCofString.c_str());
 
 
-					}
+    // Begin scanning the string character by character
 
-					// If no digit is specified and parenthesis mode is off, then assume one
+    for(i = 0; i < endOfString; i++)
+    {
 
-					if(!isdigit(input[g + 1]) && paren == false){
+        // Check to make sure its not a whitespace character
 
-						digitsFound.push_back(1);
+        if(isspace(input[i]))
+        {
+            continue;
+        }
 
-					}
+        // Check to make sure its not a + or = character or parenthesis
 
-					// If a digit is specified and we are in parenthesis mode do the multiplication
+        if((input[i] == '+') || (input[i] == '='))
+        {
+            continue;
+        }
 
-					if(isdigit(input[g + 1]) && paren == true){
+        if((input[i] == '(') || (input[i] == ')'))
+        {
+            continue;
+        }
 
-						// Find the number after the next closing parenthesis in the input
+        // Check to make sure its not a number
 
-						for(j = g + 1; j < endOfString; j++){
+        if(isdigit(input[i]))
+        {
+            continue;
 
-							if(input[j] == ')'){
+            // We'll worry about counting digits later
+        }
+
+        // Now if its a letter
+
+        if(isalpha(input[i]))
+        {
+
+            // We need to check if its a single letter or a double letter element.
+
+            /* SINGLE LETTER CHECK! */
+
+            if(isupper(input[i]) && ( isupper(input[i+1]) || isdigit(input[i+1]) || isspace(input[i+1]) || input[i+1] == '(' || input[i+1] == ')' || input[i+1] == '+' || input[i+1] == '='))
+            {
+
+                temp.push_back(input[i]);
+
+                // Inject into the vector only if it isn't already in there
+
+                for(k = 0; k < foundElements.size(); k++)
+                {
+                    if(temp == foundElements[k])
+                    {
+                        break;
+                    }
+                }
+
+                if(k == foundElements.size())
+                {
+                    foundElements.push_back(temp);
+                }
+
+                // Clear teh string
+
+                temp.clear();
+
+            }
+
+            /* DOUBLE LETTER CHECK! */
+
+            if(isupper(input[i]) && (!isupper(input[i+1])) && (!isspace(input[i+1])) && (!isdigit(input[i+1])) && (input[i+1] != '+')  && (input[i+1] != '=')  && (input[i+1] != ')')  && (input[i+1] != '('))
+            {
+
+                temp.push_back(input[i]);
+                temp.push_back(input[i+1]);
+
+                // Inject into the vector only if it isn't already in there
+
+                for(k = 0; k < foundElements.size(); k++)
+                {
+                    if(temp == foundElements[k])
+                    {
+                        break;
+                    }
+                }
+
+                if(k == foundElements.size())
+                {
+                    foundElements.push_back(temp);
+                }
+
+                // Clear teh string
+
+                temp.clear();
+
+            }
+
+        }
+
+    }
+
+    // Now match the vector the public accesible vector
+
+    this->DATA_BASE.elementNames = foundElements;
+
+    /* BEGIN COUNTING THE AMOUNT OF ELEMENTS */
+
+    // Loop through each of the found elements
+
+    for(i = 0; i < foundElements.size(); i++)
+    {
+
+        // Find instance of the element in the string of input
+
+        for(g = 0; g < endOfString; g++)
+        {
+
+            // See if we've hit parenthesis
+
+            if(input[g] == '(')
+            {
+                paren = true;
+                continue;
+            }
+
+            if(input[g] == ')')
+            {
+                paren = false;
+                continue;
+            }
+
+            // See if we're looking for a single letter element
+
+            if(foundElements[i].size() == 1)
+            {
+
+                if(input[g] == foundElements[i].at(0))
+                {
+
+                    // Check to see if numbers are present after the element name and we're not in parenthesis mode
+
+                    if(isdigit(input[g + 1]) && paren == false)
+                    {
+
+                        numberReturnedBySubscriptFunc = this->getSubscripts(g+1,endOfString);
+
+                        digitsFound.push_back(numberReturnedBySubscriptFunc);
+
+
+                    }
+
+                    // If no digit is specified and parenthesis mode is off, then assume one
+
+                    if(!isdigit(input[g + 1]) && paren == false)
+                    {
+
+                        digitsFound.push_back(1);
+
+                    }
+
+                    // If a digit is specified and we are in parenthesis mode do the multiplication
+
+                    if(isdigit(input[g + 1]) && paren == true)
+                    {
+
+                        // Find the number after the next closing parenthesis in the input
+
+                        for(j = g + 1; j < endOfString; j++)
+                        {
+
+                            if(input[j] == ')')
+                            {
 
                                 digitafterparen = this->getSubscripts(j+1,endOfString);
-								break;
+                                break;
 
-							}
+                            }
 
-						}
+                        }
 
-						digitsFound.push_back(this->getSubscripts(g+1,endOfString)* digitafterparen);
+                        digitsFound.push_back(this->getSubscripts(g+1,endOfString)* digitafterparen);
 
-					}
+                    }
 
-					// If a digit is not specified and we are in parenthesis mode do the multiplication with one
+                    // If a digit is not specified and we are in parenthesis mode do the multiplication with one
 
-					if(!isdigit(input[g + 1]) && paren == true){
+                    if(!isdigit(input[g + 1]) && paren == true)
+                    {
 
-						// Find the number after the next closing parenthesis in the input
+                        // Find the number after the next closing parenthesis in the input
 
-						for(j = g + 1; j < endOfString; j++){
+                        for(j = g + 1; j < endOfString; j++)
+                        {
 
-							if(input[j] == ')'){
+                            if(input[j] == ')')
+                            {
 
-								digitafterparen = this->getSubscripts(j+1,endOfString);
-								break;
+                                digitafterparen = this->getSubscripts(j+1,endOfString);
+                                break;
 
-							}
+                            }
 
-						}
+                        }
 
-						digitsFound.push_back(1 * digitafterparen);
+                        digitsFound.push_back(1 * digitafterparen);
 
-					}
+                    }
 
-				}
+                }
 
-			}
+            }
 
-			// See if we're looking for a double letter element
+            // See if we're looking for a double letter element
 
-			if(foundElements[i].size() == 2){
+            if(foundElements[i].size() == 2)
+            {
 
-				if(input[g] == foundElements[i].at(0) && input[g + 1] == foundElements[i].at(1)){
+                if(input[g] == foundElements[i].at(0) && input[g + 1] == foundElements[i].at(1))
+                {
 
-					// Check to see if numbers are present after the element name and we're not in parenthesis mode
+                    // Check to see if numbers are present after the element name and we're not in parenthesis mode
 
-					if(isdigit(input[g + 2]) && paren == false){
+                    if(isdigit(input[g + 2]) && paren == false)
+                    {
 
-						digitsFound.push_back(input[g + 2] - '0');
+                        digitsFound.push_back(this->getSubscripts(g+2,endOfString));
 
-					}
+                        //digitsFound.push_back(input[g + 2] - '0');
 
-					// If no digit is specified and parenthesis mode is off, then assume one
+                    }
 
-					if(!isdigit(input[g + 2]) && paren == false){
+                    // If no digit is specified and parenthesis mode is off, then assume one
 
-						digitsFound.push_back(1);
+                    if(!isdigit(input[g + 2]) && paren == false)
+                    {
 
-					}
+                        digitsFound.push_back(1);
 
-					// If a digit is specified and we are in parenthesis mode do the multiplication
+                    }
 
-					if(isdigit(input[g + 2]) && paren == true){
+                    // If a digit is specified and we are in parenthesis mode do the multiplication
 
-						// Find the number after the next closing parenthesis in the input
+                    if(isdigit(input[g + 2]) && paren == true)
+                    {
 
-						for(j = g + 2; j < endOfString; j++){
+                        // Find the number after the next closing parenthesis in the input
 
-							if(input[j] == ')'){
+                        for(j = g + 2; j < endOfString; j++)
+                        {
 
-								digitafterparen = input[j + 1] - '0';
-								break;
+                            if(input[j] == ')')
+                            {
 
-							}
+                                digitafterparen = this->getSubscripts(j + 1,endOfString);
+                                break;
 
-						}
+                            }
 
-						digitsFound.push_back((input[g + 2] - '0') * digitafterparen);
+                        }
 
-					}
+                        digitsFound.push_back(this->getSubscripts(g + 2,endOfString) * digitafterparen);
 
-					// If a digit is not specified and we are in parenthesis mode do the multiplication with one
+                    }
 
-					if(!isdigit(input[g + 2]) && paren == true){
+                    // If a digit is not specified and we are in parenthesis mode do the multiplication with one
 
-						// Find the number after the next closing parenthesis in the input
+                    if(!isdigit(input[g + 2]) && paren == true)
+                    {
 
-						for(j = g + 2; j < endOfString; j++){
+                        // Find the number after the next closing parenthesis in the input
 
-							if(input[j] == ')'){
+                        for(j = g + 2; j < endOfString; j++)
+                        {
 
-								digitafterparen = input[j + 1] - '0';
-								break;
+                            if(input[j] == ')')
+                            {
 
-							}
+                                digitafterparen = this->getSubscripts(j + 1, endOfString);
+                                break;
 
-						}
+                            }
 
-						digitsFound.push_back(1 * digitafterparen);
+                        }
 
-					}
+                        digitsFound.push_back(1 * digitafterparen);
 
-				}
+                    }
 
-			}
+                }
+
+            }
 
 
-		}
+        }
 
 
-		/* SUM UP THE CONTENTS OF digitsFound and INJECT IT*/
+        /* SUM UP THE CONTENTS OF digitsFound and INJECT IT*/
 
-		for(k = 0; k < digitsFound.size(); k++){
-			tempsum = tempsum + digitsFound[k];
-		}
+        for(k = 0; k < digitsFound.size(); k++)
+        {
+            tempsum = tempsum + digitsFound[k];
+        }
 
-		amountOfFoundElements.push_back(tempsum * firstcoefficientOfCompound);
+        amountOfFoundElements.push_back(tempsum * firstcoefficientOfCompound);
 
-		/*
+        /*
 
-		cout << "Temp Sum = " << tempsum;
-		cout << "First Coff = " << firstcoefficientOfCompound;
-		cout << "Shoved in: " << tempsum * firstcoefficientOfCompound;
+        cout << "Temp Sum = " << tempsum;
+        cout << "First Coff = " << firstcoefficientOfCompound;
+        cout << "Shoved in: " << tempsum * firstcoefficientOfCompound;
 
-		*/
+        */
 
-		// Reset sum and clear digitsFound
+        // Reset sum and clear digitsFound
 
-		tempsum = 0;
-		digitsFound.clear();
+        tempsum = 0;
+        digitsFound.clear();
 
-	}
+    }
 
-	// Inject into the public class
+    // Inject into the public class
 
-	this->DATA_BASE.amountOfElement = amountOfFoundElements;
+    this->DATA_BASE.amountOfElement = amountOfFoundElements;
 
 }
 
@@ -444,25 +494,28 @@ void ChemEquation::parseInput(string equationstring){
 
  */
 
-void ChemEquation::tokenizer(){
+void ChemEquation::tokenizer()
+{
 
-	int i;
-	string firstHalf;
-	string secondHalf;
+    int i;
+    string firstHalf;
+    string secondHalf;
     string currentToken;
     string tempToken;
 
-	// Split the equation string into two strings, one for the lefthand, one for the righthand
+    // Split the equation string into two strings, one for the lefthand, one for the righthand
 
     istringstream streamy(this->equationstring);
 
-    while(getline(streamy,firstHalf, '=')){
+    while(getline(streamy,firstHalf, '='))
+    {
 
         cout << "\nHere is the first half:" << firstHalf << "\n";
 
-        while(getline(streamy,secondHalf)){
+        while(getline(streamy,secondHalf))
+        {
 
-             cout << "\nHere is the second half:" << secondHalf << "\n";
+            cout << "\nHere is the second half:" << secondHalf << "\n";
 
         }
 
@@ -473,7 +526,8 @@ void ChemEquation::tokenizer(){
     istringstream streamy2(firstHalf);
     istringstream streamy3(secondHalf);
 
-    while(getline(streamy2, tempToken , '+')){
+    while(getline(streamy2, tempToken , '+'))
+    {
 
         cout << "\nHere is a token:" << tempToken << "\n";
 
@@ -481,7 +535,8 @@ void ChemEquation::tokenizer(){
 
     }
 
-    while(getline(streamy3, tempToken , '+')){
+    while(getline(streamy3, tempToken , '+'))
+    {
 
         cout << "\nHere is a token:" << tempToken << "\n";
 
@@ -491,7 +546,8 @@ void ChemEquation::tokenizer(){
 
     /* Now create the nice package for the calculator */
 
-    for(i = 0; i < this->DATA_BASE.tokens.size(); i++){
+    for(i = 0; i < this->DATA_BASE.tokens.size(); i++)
+    {
 
 
         this -> package.push_back(compound());
@@ -520,20 +576,21 @@ void ChemEquation::tokenizer(){
 individual element in a compound or series of elements that are given
 to it.*/
 
-double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position) {
+double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position)
+{
 
-	//The final molar mass that will be given for each compound:
+    //The final molar mass that will be given for each compound:
 
-	double molarMass;
+    double molarMass;
 
-	//For loop that gets the molar mass of every compound in the mulch::compound
+    //For loop that gets the molar mass of every compound in the mulch::compound
 
     /*
 
     //This code is commented because it is not sustainable--No programmer should need to return the molar mass of
     //ever element in a compound.
 
-	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
+    for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
         molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
 
@@ -553,7 +610,8 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
 of a reactant or product and converting the amount of that element or
 compound into a useable value in moles.*/
 
-double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams) {
+double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams)
+{
 
     //Doubles that will hold important mass numbers
 
@@ -568,7 +626,8 @@ double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double g
     //For loop that checks the molar mass of every element in the mulch::compound
     //and adds them all together for a final mass number
 
-	for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
+    for(int i = 0; i < chemicalCompound.compoundElements.size(); i++)
+    {
 
         molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
 
@@ -587,7 +646,8 @@ double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double g
 determine how much of another product or reactant can be created with that
 product/reactant*/
 
-double ChemEquation::gramsToGrams(mulch::compound chemicalCompound, double grams, int position1, int position2) {
+double ChemEquation::gramsToGrams(mulch::compound chemicalCompound, double grams, int position1, int position2)
+{
 
 
 }
@@ -596,19 +656,20 @@ double ChemEquation::gramsToGrams(mulch::compound chemicalCompound, double grams
 element before feeding this data back to elementLookup() to be
 printed to the screen.  It contains the molar mass of every element.*/
 
-double ChemEquation::calculateMM(string element, int quantity){
+double ChemEquation::calculateMM(string element, int quantity)
+{
 
-	double final;
+    double final;
     int i;
 
     i = index(element);
 
-	vector <double> elementMasses;
+    vector <double> elementMasses;
 
-	/**All element masses are below.  Do not change these numbers!!!*/
+    /**All element masses are below.  Do not change these numbers!!!*/
 
-	elementMasses.push_back(1.008);
-	elementMasses.push_back(4.002602);
+    elementMasses.push_back(1.008);
+    elementMasses.push_back(4.002602);
     elementMasses.push_back(6.94);
     elementMasses.push_back(9.012182);
     elementMasses.push_back(10.81);
@@ -647,17 +708,18 @@ double ChemEquation::calculateMM(string element, int quantity){
     elementMasses.push_back(87.62);
     elementMasses.push_back(88.90585);
 
-	final = elementMasses[i] * quantity;
+    final = elementMasses[i] * quantity;
 
 
-	return final;
+    return final;
 }
 
-    /*The Indexing method is where the database of elements is contained.
-    This method will look up each element and return an integer that can
-    be used in double calculateMM() to find and calculate molar mass.*/
+/*The Indexing method is where the database of elements is contained.
+This method will look up each element and return an integer that can
+be used in double calculateMM() to find and calculate molar mass.*/
 
-int ChemEquation::index(string element) {
+int ChemEquation::index(string element)
+{
     /*Returns an integer that can be used in a case statement for element lookup.*/
     int i;
 
@@ -706,21 +768,25 @@ int ChemEquation::index(string element) {
 
     vector <int> atomicNumbers;
 
-    for(int y = 0; y < 120; y++){
+    for(int y = 0; y < 120; y++)
+    {
         atomicNumbers.push_back(y);
     }
 
     bool found = false;
 
-    for(int x = 0; x < 19; x++){
-        if(element == elementSymbols[x]){
+    for(int x = 0; x < 19; x++)
+    {
+        if(element == elementSymbols[x])
+        {
             i = atomicNumbers[x];
             found = true;
             break;
         }
     }
 
-    if(!found) {
+    if(!found)
+    {
         cerr << "Error 1: Element not found" << endl;
         i = NULL;
     }
@@ -735,7 +801,8 @@ int ChemEquation::index(string element) {
 /   (within the structs are more vectors)
 /*/
 
-vector <compound> ChemEquation::getCompoundData(){
+vector <compound> ChemEquation::getCompoundData()
+{
 
     tokenizer();
 
@@ -751,7 +818,8 @@ vector <compound> ChemEquation::getCompoundData(){
 /   They are in order
 /*/
 
-vector <string> ChemEquation::getCompoundStrings(){
+vector <string> ChemEquation::getCompoundStrings()
+{
 
     tokenizer();
 
@@ -761,22 +829,26 @@ vector <string> ChemEquation::getCompoundStrings(){
 
 // Implementation of getSubscripts()
 
-int ChemEquation::getSubscripts(int position, int endingPosition){
+int ChemEquation::getSubscripts(int position, int endingPosition)
+{
 
     /* TODO: ADD STUFF */
 
     string subScriptString = "1";
     int answer;
 
-    for(position; position < endingPosition; position++){
+    for(position; position < endingPosition; position++)
+    {
 
-        if(isalpha(input[position]) || input[position] == ')'  || input[position] == '(' || input[position] == '\n'){
+        if(isalpha(input[position]) || input[position] == ')'  || input[position] == '(' || input[position] == '\n')
+        {
 
             break;
 
         }
 
-        if(isdigit(input[position])){
+        if(isdigit(input[position]))
+        {
 
             subScriptString.push_back(input[position]);
 
@@ -784,7 +856,8 @@ int ChemEquation::getSubscripts(int position, int endingPosition){
 
     }
 
-    if(subScriptString.size() > 1){
+    if(subScriptString.size() > 1)
+    {
 
         subScriptString.erase(0,1);
 
