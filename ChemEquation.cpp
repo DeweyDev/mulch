@@ -585,10 +585,12 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
 
     //For loop that gets the molar mass of every compound in the mulch::compound
 
-    /*
+    /**
 
     //This code is commented because it is not sustainable--No programmer should need to return the molar mass of
-    //ever element in a compound.
+    //every element in a compound.
+
+    *//*
 
     for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
 
