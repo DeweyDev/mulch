@@ -62,7 +62,7 @@ int main( void ){
     cin >> compoundID;
 
     */
-
+    /*
     for(int i = 0; i < dataBlob.size(); i++) {
 
         for(int xyz = 0; xyz < dataBlob[i].compoundElements.size(); xyz++) {
@@ -86,13 +86,13 @@ int main( void ){
     cin >> compoundGrams;
 
     */
-
+    /*
     double finalMass = secondone.gramsToMolarMass(dataBlob[0], 10);
 
     cout << "The final molar mass of " << dataBlob[0].compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
 
     cout << "10 grams of " << dataBlob[0].compoundString << " is equivalent to " << finalMass << " moles of " << dataBlob[0].compoundString << endl;
-
+    */
 	keep_window_open();
 	return 0;
 }
