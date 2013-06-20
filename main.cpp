@@ -65,21 +65,6 @@ int main( void ){
 
     }
 
-
-    /*
-    int counter = 0;
-
-    while(counter < dataBlob.size()) {
-        for(int xyz = 0; xyz < dataBlob[counter].compoundElements.size(); xyz++) {
-            cout << "Molar Mass of " << dataBlob[counter].compoundElements[xyz] << ": " << secondone.molarMassLookup(dataBlob[])
-        }
-    }
-
-    */
-
-    cout << "Molar Mass of H12 = " << secondone.molarMassLookup(dataBlob[0], 1);
-
-
     printf("\n\n====Test 4: Converting from Grams to Moles====\n\n");
 
     double finalMass = secondone.gramsToMolarMass(dataBlob[0], 10);
