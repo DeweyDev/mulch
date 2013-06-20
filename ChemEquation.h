@@ -1,6 +1,8 @@
 #pragma once
 #include "std_lib_facilities.h"
 
+// Namespace mulch
+
 namespace mulch {
 
     struct compound {
