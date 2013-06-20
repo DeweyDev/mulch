@@ -53,17 +53,7 @@ int main( void ){
 
     printf("\n\n=====Test 3: Calculating Molar Mass======\n\n");
 
-    /*
-
-    cout << "Identify the compound you would like to check the molar mass of: ";
-
-    int compoundID;
-
-    cin >> compoundID;
-
-    */
-    /*
-    for(int i = 0; i < dataBlob.size(); i++) {
+    /*for(int i = 0; i < dataBlob.size(); i++) {
 
         for(int xyz = 0; xyz < dataBlob[i].compoundElements.size(); xyz++) {
 
@@ -74,25 +64,18 @@ int main( void ){
         }
 
     }
+    */
+
+    cout << "Molar Mass of H12 = " << secondone.molarMassLookup(dataBlob[0], 1);
 
     printf("\n\n====Test 4: Converting from Grams to Moles====\n\n");
 
-    /*
-
-    cout << "Please enter the amount in grams of the first compound: ";
-
-    int compoundGrams;
-
-    cin >> compoundGrams;
-
-    */
-    /*
     double finalMass = secondone.gramsToMolarMass(dataBlob[0], 10);
 
     cout << "The final molar mass of " << dataBlob[0].compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
 
     cout << "10 grams of " << dataBlob[0].compoundString << " is equivalent to " << finalMass << " moles of " << dataBlob[0].compoundString << endl;
-    */
+
 	keep_window_open();
 	return 0;
 }
