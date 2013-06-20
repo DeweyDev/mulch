@@ -570,8 +570,6 @@ void ChemEquation::tokenizer()
 
 /** Calculator methods begin here*/
 
-/** From here I do understand that everything is unstable, give me time becuase I'm working to fix it.*/
-
 /*Molar Mass Lookup is responsible for finding the molar masses of each
 individual element in a compound or series of elements that are given
 to it.*/
@@ -584,23 +582,6 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
     double molarMass;
 
     //For loop that gets the molar mass of every compound in the mulch::compound
-
-    /**
-
-    //This code is commented because it is not sustainable--No programmer should need to return the molar mass of
-    //every element in a compound.
-
-    *//*
-
-    for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
-
-        molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
-
-        return molarMass;
-
-    }
-
-    */
 
     molarMass = calculateMM(chemicalCompound.compoundElements[position], chemicalCompound.compoundElementsAmounts[position]);
 
