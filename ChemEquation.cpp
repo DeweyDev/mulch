@@ -602,7 +602,7 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
 
     */
 
-    molarMass = calculateMM(chemicalCompound.compoundElements[position - 1], chemicalCompound.compoundElementsAmounts[position - 1]);
+    molarMass = calculateMM(chemicalCompound.compoundElements[position], chemicalCompound.compoundElementsAmounts[position]);
 
     return molarMass;
 
