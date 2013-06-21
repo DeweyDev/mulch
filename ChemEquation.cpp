@@ -574,7 +574,7 @@ void ChemEquation::tokenizer()
 individual element in a compound or series of elements that are given
 to it.*/
 
-double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position)
+/*double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position)
 {
 
     //The final molar mass that will be given for each compound:
@@ -587,7 +587,7 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
 
     return molarMass;
 
-}
+}*/
 
 /*Grams to Molar Mass is responsible for taking a given amound in grams
 of a reactant or product and converting the amount of that element or
