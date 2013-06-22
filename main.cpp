@@ -82,6 +82,8 @@ int main( void ){
 
     */
 
+    cout << "10 grams of H2O in the equation CO2 = H2O yields " << secondone.gramsToGrams(dataBlob, 10, 0, 1) << " grams of CO2." << endl;
+
 	keep_window_open();
 	return 0;
 }

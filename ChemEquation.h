@@ -59,6 +59,9 @@ namespace mulch {
             vector <int> atomicNumbers;
 
             vector <double> elementMasses;
+
+
+
         } databank;
 
         // Instance of the database
@@ -85,7 +88,7 @@ namespace mulch {
 
         double gramsToMolarMass(mulch::compound chemicalCompound, double grams);
 
-        double gramsToGrams(mulch::compound chemicalCompound, double grams, int position1, int position2);
+        double gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int position1, int position2);
 
         /** GENERAL PUBLIC FUNCTIONS
         //
