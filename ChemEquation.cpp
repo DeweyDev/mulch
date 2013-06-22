@@ -570,9 +570,7 @@ void ChemEquation::tokenizer()
 
 /** Calculator methods begin here*/
 
-/*Molar Mass Lookup is responsible for finding the molar masses of each
-individual element in a compound or series of elements that are given
-to it.*/
+/*This first Molar Mass Lookup will find the molar mass of an element within a mulch::compound.*/
 
 double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position)
 {
@@ -589,55 +587,7 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
 
 }
 
-/*Grams to Molar Mass is responsible for taking a given amound in grams
-of a reactant or product and converting the amount of that element or
-compound into a useable value in moles.*/
-
-double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams)
-{
-
-    //Doubles that will hold important mass numbers
-
-    double numberMoles;
-
-    double molarMass;
-
-    double finalMass = 0;
-
-    double finalMoles;
-
-    //For loop that checks the molar mass of every element in the mulch::compound
-    //and adds them all together for a final mass number
-
-    for(int i = 0; i < chemicalCompound.compoundElements.size(); i++)
-    {
-
-        molarMass = molarMassLookup(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
-
-        finalMass = finalMass + molarMass;
-
-    }
-
-    //Conversion from grams to moles using gram value (input) and mole ratio (calculated)
-
-    finalMoles = (grams / finalMass);
-
-    return finalMoles;
-}
-
-/*gramsToGrams will take the amount in grams of one product or reactant and
-determine how much of another product or reactant can be created with that
-product/reactant*/
-
-double ChemEquation::gramsToGrams(mulch::compound chemicalCompound, double grams, int position1, int position2)
-{
-
-
-}
-
-/*CalculateMM will calculate the molar mass of each individual
-element before feeding this data back to elementLookup() to be
-printed to the screen.  It contains the molar mass of every element.*/
+/*This second Molar Mass Lookup will find the molar mass of a given element from a string.*/
 
 double ChemEquation::molarMassLookup(string element, int quantity)
 {
@@ -695,6 +645,52 @@ double ChemEquation::molarMassLookup(string element, int quantity)
 
 
     return final;
+}
+
+/*Grams to Molar Mass is responsible for taking a given amound in grams
+of a reactant or product and converting the amount of that element or
+compound into a useable value in moles.*/
+
+double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams)
+{
+
+    //Doubles that will hold important mass numbers
+
+    double numberMoles;
+
+    double molarMass;
+
+    double finalMass = 0;
+
+    double finalMoles;
+
+    //For loop that checks the molar mass of every element in the mulch::compound
+    //and adds them all together for a final mass number
+
+    for(int i = 0; i < chemicalCompound.compoundElements.size(); i++)
+    {
+
+        molarMass = molarMassLookup(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
+
+        finalMass = finalMass + molarMass;
+
+    }
+
+    //Conversion from grams to moles using gram value (input) and mole ratio (calculated)
+
+    finalMoles = (grams / finalMass);
+
+    return finalMoles;
+}
+
+/*gramsToGrams will take the amount in grams of one product or reactant and
+determine how much of another product or reactant can be created with that
+product/reactant*/
+
+double ChemEquation::gramsToGrams(mulch::compound chemicalCompound, double grams, int position1, int position2)
+{
+
+
 }
 
 /*The Indexing method is where the database of elements is contained.
