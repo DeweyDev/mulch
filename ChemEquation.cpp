@@ -574,7 +574,7 @@ void ChemEquation::tokenizer()
 individual element in a compound or series of elements that are given
 to it.*/
 
-/*double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position)
+double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int position)
 {
 
     //The final molar mass that will be given for each compound:
@@ -583,11 +583,11 @@ to it.*/
 
     //For loop that gets the molar mass of every compound in the mulch::compound
 
-    molarMass = calculateMM(chemicalCompound.compoundElements[position], chemicalCompound.compoundElementsAmounts[position]);
+    molarMass = molarMassLookup(chemicalCompound.compoundElements[position], chemicalCompound.compoundElementsAmounts[position]);
 
     return molarMass;
 
-}*/
+}
 
 /*Grams to Molar Mass is responsible for taking a given amound in grams
 of a reactant or product and converting the amount of that element or
@@ -612,7 +612,7 @@ double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double g
     for(int i = 0; i < chemicalCompound.compoundElements.size(); i++)
     {
 
-        molarMass = calculateMM(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
+        molarMass = molarMassLookup(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
 
         finalMass = finalMass + molarMass;
 
@@ -639,7 +639,7 @@ double ChemEquation::gramsToGrams(mulch::compound chemicalCompound, double grams
 element before feeding this data back to elementLookup() to be
 printed to the screen.  It contains the molar mass of every element.*/
 
-double ChemEquation::calculateMM(string element, int quantity)
+double ChemEquation::molarMassLookup(string element, int quantity)
 {
 
     double final;
