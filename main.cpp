@@ -65,7 +65,7 @@ int main( void ){
 
     printf("\n\n====Test 4: Converting from Grams to Moles====\n\n");
 
-    /*
+    
 
     double finalMass = secondone.gramsToMolarMass(dataBlob[0], 10);
 
@@ -77,10 +77,10 @@ int main( void ){
 
 
     for(int grams = 1; grams <= 10; grams++) {
-        cout << "The final molar mass of "
+        cout << "The final molar mass of ";
     }
 
-    */
+    
 
 	keep_window_open();
 	return 0;
