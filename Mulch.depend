@@ -127,7 +127,7 @@
 	<cstring>
 	<sstream>
 
-1371942123 c:\documents and settings\daniel\desktop\mulch\chemequation.h
+1372103484 c:\documents and settings\daniel\desktop\mulch\chemequation.h
 	"std_lib_facilities.h"
 
 1371250165 c:\documents and settings\daniel\desktop\mulch\std_lib_facilities.h
@@ -145,7 +145,7 @@
 	<ext/hash_map>
 	<iomanip>
 
-1371942299 source:c:\documents and settings\daniel\desktop\mulch\main.cpp
+1372103715 source:c:\documents and settings\daniel\desktop\mulch\main.cpp
 	"std_lib_facilities.h"
 	<iostream>
 	<stdlib.h>

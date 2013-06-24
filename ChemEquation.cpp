@@ -695,7 +695,7 @@ double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, doub
 
     double position1Moles = gramsToMoles(chemicalCompound[position1], grams);
 
-    double position2Moles = position1Moles * molarMassLookup(chemicalCompound[position2], 0);
+    double position2Moles = position1Moles * molarMassLookup(chemicalCompound[position2], position2);
 
     return position2Moles;
 
