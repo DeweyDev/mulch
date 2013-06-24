@@ -690,16 +690,16 @@ product/reactant*/
 /**Right now gramsToGrams is basic and only does conversions for equations with
 mole ratios of 1:1.*/
 
-double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int position1, int position2)
+double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition)
 {
 
     int finalMolesPosition2 = 0;
 
-    double position1Moles = gramsToMoles(chemicalCompound[position1], grams);
+    double position1Moles = gramsToMoles(chemicalCompound[firstCompoundPosition], grams);
 
-    for(int i = 0; i < chemicalCompound[position2].compoundElements.size(); i++) {
+    for(int i = 0; i < chemicalCompound[secondCompoundPosition].compoundElements.size(); i++) {
 
-        finalMolesPosition2 = finalMolesPosition2 + molarMassLookup(chemicalCompound[position2], i);
+        finalMolesPosition2 = finalMolesPosition2 + molarMassLookup(chemicalCompound[secondCompoundPosition], i);
 
     }
 
