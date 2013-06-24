@@ -651,7 +651,7 @@ double ChemEquation::molarMassLookup(string element, int quantity)
 of a reactant or product and converting the amount of that element or
 compound into a useable value in moles.*/
 
-double ChemEquation::gramsToMolarMass(mulch::compound chemicalCompound, double grams)
+double ChemEquation::gramsToMoles(mulch::compound chemicalCompound, double grams)
 {
 
     //Doubles that will hold important mass numbers
@@ -693,7 +693,7 @@ mole ratios of 1:1.*/
 double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int position1, int position2)
 {
 
-    double position1Moles = gramsToMolarMass(chemicalCompound[position1], grams);
+    double position1Moles = gramsToMoles(chemicalCompound[position1], grams);
 
     double position2Moles = position1Moles * molarMassLookup(chemicalCompound[position2], 0);
 

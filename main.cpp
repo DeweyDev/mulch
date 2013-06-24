@@ -65,24 +65,29 @@ int main( void ){
 
     printf("\n\n====Test 4: Converting from Grams to Moles====\n\n");
 
-    
+    double finalMolarMass = 0;
 
-    double finalMass = secondone.gramsToMolarMass(dataBlob[0], 10);
+    for(int molesPlaceholder = 0; molesPlaceholder < dataBlob[0].compoundElements.size(); molesPlaceholder++) {
 
-    cout << "The final molar mass of " << dataBlob[0].compoundString << " is " << finalMass << " grams per mole (g/mol)."  << endl;
+        finalMolarMass = finalMolarMass + secondone.molarMassLookup(dataBlob[0], molesPlaceholder);
+    }
 
-    cout << "10 grams of " << dataBlob[0].compoundString << " is equivalent to " << finalMass << " moles of " << dataBlob[0].compoundString << endl;
+    double finalMoles = secondone.gramsToMoles(dataBlob[0], 10);
+
+    cout << "The final molar mass of " << dataBlob[0].compoundString << " is " << finalMolarMass << " grams per mole (g/mol)."  << endl;
+
+    cout << "10 grams of " << dataBlob[0].compoundString << " is equivalent to " << finalMoles << " moles of " << dataBlob[0].compoundString << endl;
 
 
-
+    /**This loop is not finished yet
 
     for(int grams = 1; grams <= 10; grams++) {
         cout << "The final molar mass of ";
     }
 
-    
+    */
 
-    cout << "10 grams of H2O in the equation CO2 = H2O yields " << secondone.gramsToGrams(dataBlob, 10, 0, 1) << " grams of CO2." << endl;
+    cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2) << " grams of " << dataBlob[2].compoundString << "." << endl;
 
 	keep_window_open();
 	return 0;
