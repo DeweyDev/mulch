@@ -693,9 +693,17 @@ mole ratios of 1:1.*/
 double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int position1, int position2)
 {
 
+    int finalMolesPosition2 = 0;
+
     double position1Moles = gramsToMoles(chemicalCompound[position1], grams);
 
-    double position2Moles = position1Moles * molarMassLookup(chemicalCompound[position2], position2);
+    for(int i = 0; i < chemicalCompound[position2].compoundElements.size(); i++) {
+
+        finalMolesPosition2 = finalMolesPosition2 + molarMassLookup(chemicalCompound[position2], i);
+
+    }
+
+    double position2Moles = position1Moles * finalMolesPosition2;
 
     return position2Moles;
 
