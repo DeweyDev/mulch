@@ -683,12 +683,11 @@ double ChemEquation::gramsToMoles(mulch::compound chemicalCompound, double grams
     return finalMoles;
 }
 
-/*gramsToGrams will take the amount in grams of one product or reactant and
+/*This first gramsToGrams will take the amount in grams of one product or reactant and
 determine how much of another product or reactant can be created with that
 product/reactant*/
 
-/**Right now gramsToGrams is basic and only does conversions for equations with
-mole ratios of 1:1.*/
+/**For use with a mole ratio of 1:1.*/
 
 double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition)
 {
@@ -706,6 +705,17 @@ double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, doub
     double position2Moles = position1Moles * finalMolesPosition2;
 
     return position2Moles;
+
+}
+
+/*This second gramsToGrams will take the amount of grams of one product or reactant and
+determine how much of another product or reactant can be created with that product/reactant*/
+
+/**For use with a mole ratio different from 1:1.  Enter the corrosponding coefficients of
+the two compounds being used in coefficent1 and coefficient2.*/
+
+double gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition, int coefficient1, int coefficient2)
+{
 
 }
 

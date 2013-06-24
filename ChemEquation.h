@@ -90,6 +90,8 @@ namespace mulch {
 
         double gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition);
 
+        double gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition, int coefficient1, int coefficient2);
+
         /** GENERAL PUBLIC FUNCTIONS
         //
         //  These are the functions that are meant to be used by the general public
