@@ -111,15 +111,23 @@ int main( void ){
     //                                                      //
     //------------------------------------------------------**/
 
+    cout << "\n\n\n========================================================\n\n\n";
 
+    string balancedEquation;
 
+    cout << "Enter a balanced chemical equation below:" << endl;
 
+    getline(cin, balancedEquation);
 
+    mulch::ChemEquation chemicalEquation(balancedEquation);
 
+    vector <mulch::compound> equationCompounds = chemicalEquation.getCompoundData();
 
+    for(int i = 0; i < equationCompounds.size(); i++){
 
-
-
+        cout << "The molar mass of " << equationCompounds[i].compoundString << " is " <<
+        chemicalEquation.molarMassLookup(equationCompounds[i]) << " grams per mole (g/mol).\n" << endl;
+    }
 
 	keep_window_open();
 	return 0;

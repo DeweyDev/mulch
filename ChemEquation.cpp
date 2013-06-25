@@ -587,7 +587,30 @@ double ChemEquation::molarMassLookup(mulch::compound chemicalCompound, int posit
 
 }
 
-/*This second Molar Mass Lookup will find the molar mass of a given element from a string.*/
+/*This second Molar Mass Lookup will find the molar mass of a compound from a mulch::compound.*/
+
+double ChemEquation::molarMassLookup(mulch::compound chemicalCompound)
+{
+
+    //The final molar mass that will be given for each compound:
+
+    double molarMass;
+
+    double finalMass;
+
+    for(int i = 0; i < chemicalCompound.compoundElements.size(); i++) {
+
+        molarMass = molarMassLookup(chemicalCompound.compoundElements[i], chemicalCompound.compoundElementsAmounts[i]);
+
+        finalMass = finalMass + molarMass;
+
+    }
+
+    return finalMass;
+
+}
+
+/*This third Molar Mass Lookup will find the molar mass of a given element from a string.*/
 
 double ChemEquation::molarMassLookup(string element, int quantity)
 {
