@@ -87,9 +87,39 @@ int main( void ){
 
     */
 
+    //Test the first gramsToGrams with a 1:1 equation
+
     cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2) << " grams of " << dataBlob[2].compoundString << "." << endl;
 
+    //Test the second gramsToGrams with a 4:5 equation
+
     cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2, 4, 5) << " grams of " << dataBlob[2].compoundString << "." << endl;
+
+
+    /**-----------------------------------------------------//
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //Serious tests of the calculator functions begin below.//
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //                                                      //
+    //------------------------------------------------------**/
+
+
+
+
+
+
+
+
+
+
 
 	keep_window_open();
 	return 0;
