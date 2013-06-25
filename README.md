@@ -67,4 +67,10 @@ There are future plans to port this library over to JavaScript utilizing Emscrip
 
 Build at your own risk.
 
-Build using the Code::Blocks IDE. There is a project file in the repository one can open.
+Build using the Code::Blocks IDE.
+
+There is a project file in the repository one can open.
+
+There is also a makefile which can be used with mingw.
+
+```mingw32-make -f MulchMake```
