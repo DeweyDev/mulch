@@ -4,8 +4,12 @@
 	<ctype.h>
 	<cstring>
 
+1371250165 
+
 1370367198 c:\documents and settings\administrator.esumsroboticsla\my documents\codeblocks projects\mulch\chemequation.h
 	"std_lib_facilities.h"
+
+1372104859 acilities.h"
 
 1370347805 c:\documents and settings\administrator.esumsroboticsla\my documents\codeblocks projects\mulch\std_lib_facilities.h
 	<iostream>
@@ -28,6 +32,8 @@
 	<stdlib.h>
 	<stdio.h>
 	"ChemEquation.h"
+
+1372103715 ion.h"
 
 1372188205 source:c:\documents and settings\norbert joseph\desktop\mulch\main.cpp
 	"std_lib_facilities.h"
@@ -151,4 +157,35 @@
 	<stdlib.h>
 	<stdio.h>
 	"ChemEquation.h"
+
+1372188361 source:/host/Documents and Settings/Norbert Joseph/Desktop/mulch/main.cpp
+	"std_lib_facilities.h"
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	"ChemEquation.h"
+
+1370385752 /host/Documents and Settings/Norbert Joseph/Desktop/mulch/std_lib_facilities.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<cmath>
+	<cstdlib>
+	<string>
+	<list>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<hash_map>
+	<ext/hash_map>
+	<iomanip>
+
+1372188146 /host/Documents and Settings/Norbert Joseph/Desktop/mulch/ChemEquation.h
+	"std_lib_facilities.h"
+
+1372196585 source:/host/Documents and Settings/Norbert Joseph/Desktop/mulch/ChemEquation.cpp
+	"ChemEquation.h"
+	<ctype.h>
+	<cstring>
+	<sstream>
 

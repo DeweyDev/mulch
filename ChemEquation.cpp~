@@ -510,12 +510,12 @@ void ChemEquation::tokenizer()
     while(getline(streamy,firstHalf, '='))
     {
 
-        //cout << "\nHere is the first half:" << firstHalf << "\n";
+        cout << "\nHere is the first half:" << firstHalf << "\n";
 
         while(getline(streamy,secondHalf))
         {
 
-            //cout << "\nHere is the second half:" << secondHalf << "\n";
+            cout << "\nHere is the second half:" << secondHalf << "\n";
 
         }
 
@@ -529,7 +529,7 @@ void ChemEquation::tokenizer()
     while(getline(streamy2, tempToken , '+'))
     {
 
-        //cout << "\nHere is a token:" << tempToken << "\n";
+        cout << "\nHere is a token:" << tempToken << "\n";
 
         this->DATA_BASE.tokens.push_back(tempToken);
 
@@ -538,7 +538,7 @@ void ChemEquation::tokenizer()
     while(getline(streamy3, tempToken , '+'))
     {
 
-        //cout << "\nHere is a token:" << tempToken << "\n";
+        cout << "\nHere is a token:" << tempToken << "\n";
 
         this->DATA_BASE.tokens.push_back(tempToken);
 
