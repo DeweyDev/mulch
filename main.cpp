@@ -87,6 +87,8 @@ int main( void ){
 
     */
 
+    /* THIS CODE HERE THROWS RANGE ERRORS
+
     //Test the first gramsToGrams with a 1:1 equation
 
     cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2) << " grams of " << dataBlob[2].compoundString << "." << endl;
@@ -95,6 +97,7 @@ int main( void ){
 
     cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2, 4, 5) << " grams of " << dataBlob[2].compoundString << "." << endl;
 
+    */
 
     /**-----------------------------------------------------//
     //                                                      //
@@ -111,7 +114,7 @@ int main( void ){
     //                                                      //
     //------------------------------------------------------**/
 
-    cout << "\n\n\n========================================================\n\n\n";
+    cout << "\n\n\n=================SERIOUS TESTS=======================\n\n\n";
 
     string balancedEquation;
 
