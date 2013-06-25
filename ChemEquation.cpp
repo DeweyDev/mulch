@@ -714,8 +714,24 @@ determine how much of another product or reactant can be created with that produ
 /**For use with a mole ratio different from 1:1.  Enter the corrosponding coefficients of
 the two compounds being used in coefficent1 and coefficient2.*/
 
-double gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition, int coefficient1, int coefficient2)
+double ChemEquation::gramsToGrams(vector<mulch::compound> chemicalCompound, double grams, int firstCompoundPosition, int secondCompoundPosition, int coefficient1, int coefficient2)
 {
+
+    int finalMolesPosition2 = 0;
+
+    double position1Moles = gramsToMoles(chemicalCompound[firstCompoundPosition], grams);
+
+    for(int i = 0; i < chemicalCompound[secondCompoundPosition].compoundElements.size(); i++) {
+
+        finalMolesPosition2 = finalMolesPosition2 + molarMassLookup(chemicalCompound[secondCompoundPosition], i);
+
+    }
+
+    position1Moles = position1Moles * coefficient2 / coefficient1;
+
+    double position2Moles = position1Moles * finalMolesPosition2;
+
+    return position2Moles;
 
 }
 
