@@ -89,6 +89,8 @@ int main( void ){
 
     cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2) << " grams of " << dataBlob[2].compoundString << "." << endl;
 
+    cout << "10 grams of " << dataBlob[0].compoundString << " in the equation above yields " << secondone.gramsToGrams(dataBlob, 10, 0, 2, 4, 5) << " grams of " << dataBlob[2].compoundString << "." << endl;
+
 	keep_window_open();
 	return 0;
 }
