@@ -1505,3 +1505,30 @@
 	"wx_pch.h"
 	"mulchGUIMain.h"
 
+1372272326 source:c:\documents and settings\daniel\desktop\mulch\mulchgui\guidialog.cpp
+	"wx/wxprec.h"
+	<wx/wx.h>
+	"GUIDialog.h"
+
+1372272326 c:\documents and settings\daniel\desktop\mulch\mulchgui\guidialog.h
+	<wx_pch.h>
+	<wx/wx.h>
+	<wx/button.h>
+	<wx/statline.h>
+
+1372272326 source:c:\documents and settings\daniel\desktop\mulch\mulchgui\mulchguiapp.cpp
+	"wx_pch.h"
+	"mulchGUIApp.h"
+	"mulchGUIMain.h"
+
+1372272326 c:\documents and settings\daniel\desktop\mulch\mulchgui\mulchguiapp.h
+	<wx/app.h>
+
+1372272326 c:\documents and settings\daniel\desktop\mulch\mulchgui\mulchguimain.h
+	"mulchGUIApp.h"
+	"GUIDialog.h"
+
+1372272326 source:c:\documents and settings\daniel\desktop\mulch\mulchgui\mulchguimain.cpp
+	"wx_pch.h"
+	"mulchGUIMain.h"
+

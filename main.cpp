@@ -132,6 +132,18 @@ int main( void ){
         chemicalEquation.molarMassLookup(equationCompounds[i]) << " grams per mole (g/mol).\n" << endl;
     }
 
+    cout << "Enter the amount, in grams, of " << equationCompounds[0].compoundString << ": ";
+
+    int grams;
+
+    cin >> grams;
+
+    cout << "With " << grams << " grams of " << equationCompounds[0].compoundString <<
+    " you can make " << secondone.gramsToGrams(equationCompounds, grams, 0, 2, 4, 5) <<
+    " grams of " << equationCompounds[2].compoundString << endl;
+
+
+
 	keep_window_open();
 	return 0;
 }
