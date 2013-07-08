@@ -141,6 +141,10 @@ int main( void ){
     cout << "With " << grams << " grams of " << equationCompounds[0].compoundString <<
     " you can make " << secondone.gramsToGrams(equationCompounds, grams, 0, 2, 4, 5) <<
     " grams of " << equationCompounds[2].compoundString << endl;
+    
+    cout << "With " << grams << " grams of " << equationCompounds[0].compoundString <<
+    " you can make " << secondone.gramsToGrams(equationCompounds, grams) << " grams of "
+    << equationCompounds[3].compoundString << endl;
 
 
 
