@@ -14,32 +14,32 @@ This project is currently in development phase, and there are no stable releases
 
 Using the mulch library is very simple. You can create a chemical equation by constructing a new ```ChemEquation``` object and supplying a string with the chemical equation.
 
-```
+```cpp
 mulch::ChemEquation combustion("CH4 + O2 = H2O + CO2");
 ```
 
 You can also create a default ChemEquation object and set the equation later on.
 
-```
+```cpp
 mulch::ChemEquation combustion;
 combustion.setEquation("CH4 + O2 = H2O + CO2");
 ```
 
 You can then get the equation you just set in string form.
 
-```
+```cpp
 string methane = combustion.getEquation();
 ```
 
 You can then get each compound of the equation packed into a STL vector.
 
-```
+```cpp
 vector <string> methaneCompounds = combustion.getCompoundStrings();
 ```
 
 Want even more data about the compounds, such as the element count, etc? This function will return a vector of structs. Each struct contains data about one compound.
 
-```
+```cpp
 vector <mulch::compound> methaneCompounds = combustion.getCompoundData();
 ```
 
